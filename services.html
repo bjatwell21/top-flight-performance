@@ -1,0 +1,674 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Services — Hitting, Strength, Speed & Team Training | Top Flight Performance</title>
+  <meta name="description" content="Explore Top Flight Performance's training programs: 2-on-1 hitting lessons, sport-specific strength training, speed & agility development, and team training in Olathe, KS." />
+  <meta name="keywords" content="hitting lessons, strength training baseball, speed training, team training, baseball development Olathe KS, batting lessons Kansas City" />
+  <meta name="robots" content="index, follow" />
+  <link rel="canonical" href="https://www.topflightperformance.com/services.html" />
+
+  <meta property="og:title" content="Training Programs | Top Flight Performance" />
+  <meta property="og:description" content="Hitting lessons, strength training, speed development, and team training for athletes ages 12 to pro." />
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://www.topflightperformance.com/services.html" />
+  <meta property="og:image" content="https://www.topflightperformance.com/images/logo1.png" />
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Service",
+    "serviceType": "Baseball Training",
+    "provider": {
+      "@type": "SportsActivityLocation",
+      "name": "Top Flight Performance",
+      "url": "https://www.topflightperformance.com"
+    },
+    "areaServed": {"@type": "State", "name": "Kansas"},
+    "description": "Elite hitting lessons, strength training, speed development, and team training for athletes ages 12 to pro."
+  }
+  </script>
+
+  <link rel="stylesheet" href="styles.css" />
+  <style>
+    /* ===== SERVICES HERO ===== */
+    .services-hero {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      height: 100vh;
+      padding-top: 72px;
+      position: relative;
+    }
+
+    .services-hero-logo {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -55%);
+      z-index: 10;
+      pointer-events: none;
+      text-align: center;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+
+    .services-hero-logo span {
+      font-family: 'Graduate', serif;
+      font-weight: 400;
+      color: var(--white);
+      text-transform: uppercase;
+      letter-spacing: 8px;
+      text-shadow: -1px -1px 0 rgba(255,255,255,0.15), 2px 2px 0 rgba(0,0,0,0.9), 3px 4px 6px rgba(0,0,0,0.5), 0 0 40px rgba(0,0,0,0.8), 0 0 80px rgba(0,0,0,0.6);
+      line-height: 1;
+    }
+
+    .services-hero-logo span {
+      font-size: 6vw !important;
+    }
+
+    .services-hero-panel {
+      position: relative;
+      overflow: hidden;
+      cursor: pointer;
+      text-decoration: none;
+      display: block;
+    }
+
+    .service-block {
+      scroll-margin-top: 80px;
+    }
+
+    .services-hero-panel img {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: center top;
+    }
+
+    .panel-bw {
+      z-index: 2;
+      transition: opacity 0.6s ease;
+      filter: brightness(0.7);
+    }
+
+    .panel-color {
+      z-index: 1;
+    }
+
+    .services-hero-panel:hover .panel-bw {
+      opacity: 0;
+    }
+
+    .panel-label {
+      position: absolute;
+      bottom: 2rem;
+      left: 50%;
+      transform: translateX(-50%);
+      font-family: 'Graduate', serif;
+      font-size: 2rem;
+      font-weight: 400;
+      color: var(--white);
+      text-transform: uppercase;
+      letter-spacing: 3px;
+      z-index: 3;
+      text-shadow: 0 2px 10px rgba(0,0,0,0.7), 0 0 30px rgba(0,0,0,0.7), 0 0 60px rgba(0,0,0,0.5);
+    }
+
+    @media (max-width: 900px) {
+      .services-hero {
+        grid-template-columns: repeat(2, 1fr);
+        height: auto;
+      }
+
+      .services-hero-panel {
+        height: 50vh;
+      }
+
+      .panel-label {
+        font-size: 1.5rem;
+      }
+    }
+
+    @media (max-width: 500px) {
+      .services-hero {
+        grid-template-columns: 1fr;
+      }
+
+      .services-hero-panel {
+        height: 40vh;
+      }
+    }
+
+    /* ===== SERVICES LIST ===== */
+    .services-section {
+      padding: 6rem 4rem;
+      background: var(--white);
+    }
+
+    .services-inner {
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+
+    .service-block {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 5rem;
+      align-items: center;
+      padding: 5rem 0;
+      border-bottom: 1px solid #e5e5e5;
+    }
+
+    .service-block:first-child {
+      padding-top: 0;
+    }
+
+    .service-block:last-child {
+      border-bottom: none;
+    }
+
+    .service-block.reverse .service-visual {
+      order: 2;
+    }
+
+    .service-block.reverse .service-content {
+      order: 1;
+    }
+
+    .service-visual {
+      background: var(--dark);
+      aspect-ratio: 3/4;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      border-top: 4px solid var(--red);
+      color: #444;
+      font-family: 'Oswald', sans-serif;
+      font-size: 0.85rem;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      gap: 0.75rem;
+    }
+
+    .service-visual .big-icon {
+      font-size: 4rem;
+    }
+
+    .service-photo {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: center;
+      display: block;
+    }
+
+    .service-number {
+      font-family: 'Oswald', sans-serif;
+      font-size: 5rem;
+      font-weight: 700;
+      color: #f0f0f0;
+      line-height: 1;
+      margin-bottom: -0.5rem;
+    }
+
+    .service-content h2 {
+      font-family: 'Oswald', sans-serif;
+      font-size: 2.4rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      color: var(--black);
+      line-height: 1.1;
+      margin-bottom: 1rem;
+    }
+
+    .service-content p {
+      color: #555;
+      font-size: 0.97rem;
+      line-height: 1.8;
+      margin-bottom: 1rem;
+    }
+
+    .service-details {
+      margin-top: 1.5rem;
+      display: flex;
+      flex-direction: column;
+      gap: 0.6rem;
+    }
+
+    .service-detail-item {
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+      font-size: 0.9rem;
+      color: #444;
+    }
+
+    .service-detail-item::before {
+      content: '';
+      width: 8px;
+      height: 8px;
+      background: var(--red);
+      flex-shrink: 0;
+    }
+
+    /* ===== WHO WE TRAIN ===== */
+    .who-section {
+      background: var(--black);
+      padding: 6rem 4rem;
+    }
+
+    .who-inner {
+      max-width: 1200px;
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 5rem;
+      align-items: center;
+    }
+
+    .who-text h2 {
+      font-family: 'Oswald', sans-serif;
+      font-size: 2.6rem;
+      font-weight: 700;
+      color: var(--white);
+      text-transform: uppercase;
+      line-height: 1.1;
+      margin-bottom: 1.25rem;
+    }
+
+    .who-text h2 span {
+      color: var(--red);
+    }
+
+    .who-text p {
+      color: #aaa;
+      font-size: 0.97rem;
+      line-height: 1.8;
+      margin-bottom: 1rem;
+    }
+
+    .age-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1rem;
+    }
+
+    .age-card {
+      background: var(--dark2);
+      border-left: 4px solid var(--red);
+      padding: 1.25rem 1.5rem;
+    }
+
+    .age-card h4 {
+      font-family: 'Oswald', sans-serif;
+      font-size: 1.1rem;
+      font-weight: 700;
+      color: var(--white);
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      margin-bottom: 0.4rem;
+    }
+
+    .age-card p {
+      font-size: 0.85rem;
+      color: #888;
+    }
+
+    /* ===== PRICING STRIP ===== */
+    .pricing-strip {
+      background: var(--red);
+      padding: 4rem;
+      text-align: center;
+    }
+
+    .pricing-strip h2 {
+      font-family: 'Oswald', sans-serif;
+      font-size: 2.2rem;
+      font-weight: 700;
+      color: var(--white);
+      text-transform: uppercase;
+      letter-spacing: 2px;
+      margin-bottom: 0.75rem;
+    }
+
+    .pricing-strip p {
+      color: rgba(255,255,255,0.85);
+      font-size: 1rem;
+      margin-bottom: 1.75rem;
+      max-width: 500px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+
+    /* ===== RESPONSIVE ===== */
+    @media (max-width: 900px) {
+      .services-hero-logo span {
+        font-size: 4vw !important;
+      }
+
+      .service-block,
+      .service-block.reverse .service-visual,
+      .service-block.reverse .service-content {
+        grid-template-columns: 1fr;
+        order: unset;
+      }
+
+      .service-block {
+        display: flex;
+        flex-direction: column;
+        gap: 2rem;
+      }
+
+      .service-visual {
+        aspect-ratio: 16/9;
+      }
+
+      .who-inner {
+        grid-template-columns: 1fr;
+        gap: 3rem;
+      }
+
+      .services-section,
+      .who-section,
+      .pricing-strip {
+        padding-left: 1.5rem;
+        padding-right: 1.5rem;
+      }
+    }
+
+    @media (max-width: 600px) {
+      .services-hero-logo span {
+        font-size: 6vw !important;
+      }
+
+      .services-section {
+        padding: 3rem 1.5rem;
+      }
+
+      .service-content h2 {
+        font-size: 1.8rem;
+      }
+
+      .service-number {
+        font-size: 3rem;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- NAVIGATION -->
+  <nav>
+    <a href="index.html" class="nav-logo"><img src="images/minilogo-gradient.png" alt="" class="nav-logo-icon" />Top <span>Flight</span> Performance</a>
+    <ul class="nav-links" id="navLinks">
+      <li><a href="index.html">Home</a></li>
+      <li><a href="services.html">Services</a></li>
+      <li><a href="about.html">Coaches</a></li>
+      <li><a href="testimonials.html">Testimonials</a></li>
+      <li><a href="contact.html" class="btn-nav">Contact Us</a></li>
+    </ul>
+    <div class="hamburger" onclick="toggleNav()">
+      <span></span><span></span><span></span>
+    </div>
+  </nav>
+
+  <!-- PAGE HERO -->
+  <div class="services-hero">
+    <div class="services-hero-logo">
+      <span>Building A</span>
+      <span>Complete Athlete</span>
+    </div>
+    <a href="#hitting" class="services-hero-panel">
+      <img src="images/newhero-bw.jpeg" alt="Hitting" class="panel-bw" />
+      <img src="images/newhero.jpeg" alt="Hitting" class="panel-color" />
+      <span class="panel-label">Hitting</span>
+    </a>
+    <a href="#strength" class="services-hero-panel">
+      <img src="images/dumbellbw.jpeg" alt="Strength" class="panel-bw" />
+      <img src="images/dumbell.jpeg" alt="Strength" class="panel-color" />
+      <span class="panel-label">Strength</span>
+    </a>
+    <a href="#speed" class="services-hero-panel">
+      <img src="images/medballbw.jpeg" alt="Speed" class="panel-bw" />
+      <img src="images/medball.jpeg" alt="Speed" class="panel-color" />
+      <span class="panel-label">Speed</span>
+    </a>
+    <a href="#team" class="services-hero-panel">
+      <img src="images/teambw.jpeg" alt="Team" class="panel-bw" />
+      <img src="images/team.jpeg" alt="Team" class="panel-color" />
+      <span class="panel-label">Team</span>
+    </a>
+  </div>
+
+  <!-- SERVICES -->
+  <section class="services-section">
+    <div class="services-inner">
+
+      <!-- Hitting Lessons -->
+      <div class="service-block" id="hitting">
+        <div class="service-visual">
+          <img src="images/newhero.jpeg" alt="TFP athlete hitting in the cage" class="service-photo" />
+        </div>
+        <div class="service-content">
+          <div class="service-number">01</div>
+          <p class="section-label">Flagship Program</p>
+          <h2>Hitting Lessons</h2>
+          <div class="section-divider"></div>
+          <p>
+            Our hitting instruction is built entirely around the individual athlete. No cookie-cutter approaches, no generic drills — just focused, intentional work on your mechanics, your approach, and your results.
+          </p>
+          <p>
+            Every session runs in our 2-on-1 format — two athletes, one coach, maximum development. Your athlete gets real, dedicated attention every single rep. Not lost in a group. Not waiting for their turn.
+          </p>
+          <div class="service-details">
+            <div class="service-detail-item">2-on-1 coaching format</div>
+            <div class="service-detail-item">Individualized mechanics work</div>
+            <div class="service-detail-item">Video analysis available</div>
+            <div class="service-detail-item">TrainHeroic app programming between sessions</div>
+            <div class="service-detail-item">Ages 12 to pro level</div>
+          </div>
+          <a href="contact.html" class="btn-primary" style="margin-top:2rem;">Book a Session</a>
+        </div>
+      </div>
+
+      <!-- Strength Training -->
+      <div class="service-block reverse" id="strength">
+        <div class="service-visual">
+          <img src="images/dumbell.jpeg" alt="TFP athlete training with dumbbells" class="service-photo" />
+        </div>
+        <div class="service-content">
+          <div class="service-number">02</div>
+          <p class="section-label">Athletic Development</p>
+          <h2>Strength Training</h2>
+          <div class="section-divider"></div>
+          <p>
+            Skill and athleticism are not separate — and at TFP, we don't treat them that way. Our strength programming is specifically designed for baseball athletes, focused on building the power, durability, and explosiveness that translates directly to performance on the field.
+          </p>
+          <p>
+            Every strength program is delivered through the TrainHeroic app so athletes can follow structured programming on their own time, staying consistent between sessions.
+          </p>
+          <div class="service-details">
+            <div class="service-detail-item">Sport-specific strength programming</div>
+            <div class="service-detail-item">Power and explosiveness development</div>
+            <div class="service-detail-item">Delivered via TrainHeroic app</div>
+            <div class="service-detail-item">Designed around your hitting development</div>
+          </div>
+          <a href="contact.html" class="btn-primary" style="margin-top:2rem;">Get Started</a>
+        </div>
+      </div>
+
+      <!-- Speed Training -->
+      <div class="service-block" id="speed">
+        <div class="service-visual">
+          <img src="images/medball.jpeg" alt="TFP athlete med ball training" class="service-photo" />
+        </div>
+        <div class="service-content">
+          <div class="service-number">03</div>
+          <p class="section-label">Athletic Development</p>
+          <h2>Speed Training</h2>
+          <div class="section-divider"></div>
+          <p>
+            Speed is a skill — and like any skill, it can be trained. Our speed development program targets acceleration, first-step quickness, and overall athleticism to help athletes move faster and more efficiently in every direction.
+          </p>
+          <p>
+            We understand that the strongest, most explosive athletes are the ones who last longer and perform at a higher level. Speed work is a core part of developing the complete athlete.
+          </p>
+          <div class="service-details">
+            <div class="service-detail-item">Acceleration and first-step training</div>
+            <div class="service-detail-item">Agility and change of direction</div>
+            <div class="service-detail-item">Integrated with strength programming</div>
+            <div class="service-detail-item">Full-body athletic development</div>
+          </div>
+          <a href="contact.html" class="btn-primary" style="margin-top:2rem;">Book a Session</a>
+        </div>
+      </div>
+
+      <!-- Team Training -->
+      <div class="service-block reverse" id="team">
+        <div class="service-visual">
+          <img src="images/team.jpeg" alt="TFP team training session" class="service-photo" />
+        </div>
+        <div class="service-content">
+          <div class="service-number">04</div>
+          <p class="section-label">Group Programs</p>
+          <h2>Team Training</h2>
+          <div class="section-divider"></div>
+          <p>
+            Top Flight works with teams and groups looking to develop together. We bring the same structured, intentional approach to group settings — delivering organized, purposeful workouts that maximize development for every athlete on the roster.
+          </p>
+          <p>
+            Whether it's a travel ball team, a high school program, or a group of players training together in the offseason, we build programs that get results.
+          </p>
+          <div class="service-details">
+            <div class="service-detail-item">Travel ball and high school teams</div>
+            <div class="service-detail-item">Offseason group training</div>
+            <div class="service-detail-item">Hitting, strength, and speed combined</div>
+            <div class="service-detail-item">Custom programs for your roster</div>
+          </div>
+          <a href="contact.html" class="btn-primary" style="margin-top:2rem;">Inquire About Team Training</a>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- WHO WE TRAIN -->
+  <section class="who-section">
+    <div class="who-inner">
+      <div class="who-text">
+        <p class="section-label">Who We Work With</p>
+        <h2>Built for <span>Serious Athletes</span></h2>
+        <div class="section-divider"></div>
+        <p>
+          Top Flight Performance works with athletes from age 12 all the way through the professional level. If you're serious about developing your game, there's a place for you here.
+        </p>
+        <p>
+          Our programs are designed to meet athletes where they are and push them to where they want to go — with a structured system that builds on itself over time.
+        </p>
+      </div>
+      <div class="age-grid">
+        <div class="age-card">
+          <h4>Middle School</h4>
+          <p>Ages 12–14. Building foundations and habits early.</p>
+        </div>
+        <div class="age-card">
+          <h4>High School</h4>
+          <p>Ages 14–18. Development for prospects and competitors.</p>
+        </div>
+        <div class="age-card">
+          <h4>College</h4>
+          <p>Collegiate athletes preparing to compete at the next level.</p>
+        </div>
+        <div class="age-card">
+          <h4>Pro Level</h4>
+          <p>Elite athletes committed to playing professional baseball.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- PRICING STRIP -->
+  <section class="pricing-strip">
+    <h2>Ready to Talk Pricing?</h2>
+    <p>We don't list pricing online — every athlete's program is different. Reach out and we'll walk you through everything on a call.</p>
+    <a href="contact.html" class="btn-outline">Contact Us Today</a>
+  </section>
+
+  <!-- INSTAGRAM CTA -->
+  <div class="instagram-cta">
+    <a href="https://www.instagram.com/top_flight_performance/" target="_blank" rel="noopener noreferrer" class="instagram-btn">Follow Us on Instagram</a>
+  </div>
+
+  <!-- FOOTER -->
+  <footer>
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <a href="index.html" class="footer-logo">Top <span>Flight</span> Performance</a>
+        <p>High Performance Hitting Development. Helping hitters go from good to great through structured, intentional athlete development.</p>
+      </div>
+      <div class="footer-col">
+        <h4>Quick Links</h4>
+        <ul>
+          <li><a href="index.html">Home</a></li>
+          <li><a href="services.html">Services</a></li>
+          <li><a href="about.html">About</a></li>
+          <li><a href="contact.html">Book Now</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Hitting Lessons</h4>
+        <ul>
+          <li><a href="locations/hitting-lessons-overland-park.html">Overland Park</a></li>
+          <li><a href="locations/hitting-lessons-lenexa.html">Lenexa</a></li>
+          <li><a href="locations/hitting-lessons-shawnee.html">Shawnee</a></li>
+          <li><a href="locations/hitting-lessons-leawood.html">Leawood</a></li>
+          <li><a href="locations/hitting-lessons-gardner.html">Gardner</a></li>
+          <li><a href="locations/hitting-lessons-spring-hill.html">Spring Hill</a></li>
+          <li><a href="locations/hitting-lessons-kansas-city.html">Kansas City</a></li>
+          <li><a href="locations/hitting-lessons-prairie-village.html">Prairie Village</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Baseball &amp; Strength</h4>
+        <ul>
+          <li><a href="locations/baseball-training-overland-park.html">Baseball – Overland Park</a></li>
+          <li><a href="locations/baseball-training-lenexa.html">Baseball – Lenexa</a></li>
+          <li><a href="locations/baseball-training-shawnee.html">Baseball – Shawnee</a></li>
+          <li><a href="locations/baseball-training-kansas-city.html">Baseball – Kansas City</a></li>
+          <li><a href="locations/baseball-training-gardner.html">Baseball – Gardner</a></li>
+          <li><a href="locations/strength-training-overland-park.html">Strength – Overland Park</a></li>
+          <li><a href="locations/strength-training-kansas-city.html">Strength – Kansas City</a></li>
+          <li><a href="locations/strength-training-lenexa.html">Strength – Lenexa</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Contact</h4>
+        <div class="footer-contact-item">
+          <span class="icon">📞</span>
+          <span><a href="tel:9132957930" style="color:#aaa;text-decoration:none;">913-295-7930</a></span>
+        </div>
+        <div class="footer-contact-item">
+          <span class="icon">📍</span>
+          <span>2133 E Kansas City Rd.<br />Olathe, KS 66061</span>
+        </div>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>&copy; 2025 Top Flight Performance. All Rights Reserved.</p>
+    </div>
+  </footer>
+
+  <script>
+    function toggleNav() {
+      document.getElementById('navLinks').classList.toggle('open');
+    }
+  </script>
+
+</body>
+</html>

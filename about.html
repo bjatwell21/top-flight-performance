@@ -1,0 +1,498 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Meet the Coaches — Trevor Jones & Zach McCloud | Top Flight Performance</title>
+  <meta name="description" content="Meet Trevor Jones and Zach McCloud, the coaches behind Top Flight Performance. College baseball experience, professional backgrounds, and 7+ years developing athletes from youth to MLB level." />
+  <meta name="keywords" content="Trevor Jones coach, Zach McCloud hitting coach, Top Flight Performance coaches, baseball coaching Olathe KS, hitting instructor Kansas City" />
+  <meta name="robots" content="index, follow" />
+  <link rel="canonical" href="https://www.topflightperformance.com/about.html" />
+
+  <meta property="og:title" content="Meet the Coaches | Top Flight Performance" />
+  <meta property="og:description" content="Trevor Jones and Zach McCloud bring college and professional baseball experience to every session at TFP." />
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://www.topflightperformance.com/about.html" />
+  <meta property="og:image" content="https://www.topflightperformance.com/images/logo1.png" />
+
+  <script type="application/ld+json">
+  [{
+    "@context": "https://schema.org",
+    "@type": "Person",
+    "name": "Trevor Jones",
+    "jobTitle": "Head Coach & Founder",
+    "worksFor": {"@type": "SportsActivityLocation", "name": "Top Flight Performance"},
+    "alumniOf": {"@type": "CollegeOrUniversity", "name": "University of Central Missouri"},
+    "description": "Founder of Top Flight Performance. 4-year college baseball player, former professional baseball player with the Wichita Wingnuts. Master's Degree in Exercise Science, CSCS certified.",
+    "knowsAbout": ["Baseball", "Hitting Development", "Strength Training", "Exercise Science"]
+  },
+  {
+    "@context": "https://schema.org",
+    "@type": "Person",
+    "name": "Zach McCloud",
+    "jobTitle": "Hitting Coordinator",
+    "worksFor": {"@type": "SportsActivityLocation", "name": "Top Flight Performance"},
+    "alumniOf": {"@type": "CollegeOrUniversity", "name": "Mid-America Nazarene University"},
+    "description": "TFP Hitting Coordinator. Former college hitting coach at Hesston College and MidAmerica Nazarene. Experience working with hitters from youth to MLB level. NASM certified.",
+    "knowsAbout": ["Baseball", "Hitting Development", "Coaching"]
+  }]
+  </script>
+
+  <link rel="stylesheet" href="styles.css" />
+  <style>
+    /* ===== COACHES SECTION ===== */
+    .coaches-section {
+      padding: 6rem 4rem;
+      background: var(--white);
+    }
+
+    .coaches-inner {
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+
+    .coach-card {
+      display: grid;
+      grid-template-columns: 380px 1fr;
+      gap: 4rem;
+      align-items: start;
+      margin-bottom: 5rem;
+      padding-bottom: 5rem;
+      border-bottom: 1px solid #e5e5e5;
+    }
+
+    .coach-card:last-child {
+      border-bottom: none;
+      margin-bottom: 0;
+      padding-bottom: 0;
+    }
+
+    .coach-card.reverse {
+      grid-template-columns: 1fr 380px;
+    }
+
+    .coach-card.reverse .coach-image {
+      order: 2;
+    }
+
+    .coach-card.reverse .coach-info {
+      order: 1;
+    }
+
+    .coach-image {
+      position: relative;
+    }
+
+    .coach-photo {
+      width: 100%;
+      aspect-ratio: 3/4;
+      object-fit: cover;
+      object-position: center top;
+      display: block;
+      border-top: 4px solid var(--red);
+    }
+
+    .coach-photo-placeholder {
+      width: 100%;
+      aspect-ratio: 3/4;
+      background: var(--dark2);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      color: #444;
+      font-family: 'Oswald', sans-serif;
+      font-size: 0.85rem;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      gap: 0.5rem;
+      border-top: 4px solid var(--red);
+    }
+
+    .coach-photo-placeholder span {
+      font-size: 3rem;
+    }
+
+    .coach-info {
+      padding-top: 0.5rem;
+    }
+
+    .coach-info .section-label {
+      margin-bottom: 0.5rem;
+    }
+
+    .coach-name {
+      font-family: 'Oswald', sans-serif;
+      font-size: 2.8rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      color: var(--black);
+      line-height: 1.05;
+      letter-spacing: 1px;
+    }
+
+    .coach-title {
+      font-family: 'Oswald', sans-serif;
+      font-size: 1rem;
+      font-weight: 500;
+      text-transform: uppercase;
+      letter-spacing: 3px;
+      color: var(--red);
+      margin: 0.5rem 0 1.25rem;
+    }
+
+    .coach-bio p {
+      font-size: 0.97rem;
+      color: #555;
+      line-height: 1.8;
+      margin-bottom: 1rem;
+    }
+
+    .coach-credentials {
+      margin-top: 1.75rem;
+    }
+
+    .coach-credentials h4 {
+      font-family: 'Oswald', sans-serif;
+      font-size: 0.8rem;
+      font-weight: 600;
+      letter-spacing: 3px;
+      text-transform: uppercase;
+      color: var(--black);
+      margin-bottom: 0.75rem;
+    }
+
+    .credential-list {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 0.5rem;
+    }
+
+    .credential-list li {
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+      font-size: 0.9rem;
+      color: #555;
+    }
+
+    .credential-list li::before {
+      content: '';
+      width: 8px;
+      height: 8px;
+      background: var(--red);
+      border-radius: 0;
+      flex-shrink: 0;
+    }
+
+    /* ===== MISSION SECTION ===== */
+    .mission-section {
+      background: var(--black);
+      padding: 6rem 4rem;
+    }
+
+    .mission-inner {
+      max-width: 900px;
+      margin: 0 auto;
+      text-align: center;
+    }
+
+    .mission-inner h2 {
+      font-family: 'Oswald', sans-serif;
+      font-size: 3rem;
+      font-weight: 700;
+      color: var(--white);
+      text-transform: uppercase;
+      line-height: 1.1;
+      margin-bottom: 1.5rem;
+    }
+
+    .mission-inner h2 span {
+      color: var(--red);
+    }
+
+    .mission-inner p {
+      color: #aaa;
+      font-size: 1.05rem;
+      line-height: 1.85;
+      margin-bottom: 1rem;
+    }
+
+    /* ===== CTA ===== */
+    .cta-banner {
+      background: var(--red);
+      padding: 5rem 4rem;
+      text-align: center;
+    }
+
+    .cta-banner h2 {
+      font-family: 'Oswald', sans-serif;
+      font-size: 3rem;
+      font-weight: 700;
+      color: var(--white);
+      text-transform: uppercase;
+      letter-spacing: 2px;
+      margin-bottom: 1rem;
+    }
+
+    .cta-banner p {
+      color: rgba(255,255,255,0.85);
+      font-size: 1.1rem;
+      margin-bottom: 2rem;
+    }
+
+    /* ===== RESPONSIVE ===== */
+    @media (max-width: 900px) {
+      .coach-card,
+      .coach-card.reverse {
+        grid-template-columns: 1fr;
+      }
+
+      .coach-card.reverse .coach-image,
+      .coach-card.reverse .coach-info {
+        order: unset;
+      }
+
+      .coach-photo-placeholder {
+        aspect-ratio: 16/9;
+      }
+
+      .coach-photo {
+        aspect-ratio: 3/4;
+        max-height: 500px;
+      }
+
+      .coaches-section,
+      .mission-section,
+      .cta-banner {
+        padding-left: 1.5rem;
+        padding-right: 1.5rem;
+      }
+
+      .coach-name {
+        font-size: 2.2rem;
+      }
+
+      .coach-info {
+        padding: 2rem 1.5rem;
+      }
+
+      .mission-section {
+        padding: 4rem 1.5rem;
+      }
+
+      .mission-inner h2 {
+        font-size: 2rem;
+      }
+    }
+
+    @media (max-width: 600px) {
+      .coach-name {
+        font-size: 1.8rem;
+      }
+
+      .coach-bio p {
+        font-size: 0.9rem;
+      }
+
+      .credential-list li {
+        font-size: 0.8rem;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- NAVIGATION -->
+  <nav>
+    <a href="index.html" class="nav-logo"><img src="images/minilogo-gradient.png" alt="" class="nav-logo-icon" />Top <span>Flight</span> Performance</a>
+    <ul class="nav-links" id="navLinks">
+      <li><a href="index.html">Home</a></li>
+      <li><a href="services.html">Services</a></li>
+      <li><a href="about.html">Coaches</a></li>
+      <li><a href="testimonials.html">Testimonials</a></li>
+      <li><a href="contact.html" class="btn-nav">Contact Us</a></li>
+    </ul>
+    <div class="hamburger" id="hamburger" onclick="toggleNav()">
+      <span></span><span></span><span></span>
+    </div>
+  </nav>
+
+  <!-- PAGE HERO -->
+  <div class="page-hero">
+    <p class="section-label">The Coaches</p>
+    <h1>Meet The Staff</h1>
+  </div>
+
+  <!-- COACHES -->
+  <section class="coaches-section">
+    <div class="coaches-inner">
+
+      <!-- HEAD COACH -->
+      <div class="coach-card">
+        <div class="coach-image">
+          <img src="images/trevor.jpeg" alt="Coach Trevor - Head Coach & Founder" class="coach-photo" />
+        </div>
+        <div class="coach-info">
+          <p class="section-label">Head Coach &amp; Founder</p>
+          <h2 class="coach-name">Trevor Jones</h2>
+          <p class="coach-title">Founder / Head of Performance</p>
+          <div class="section-divider"></div>
+          <div class="coach-bio">
+            <p>
+              A four-year college baseball player at the University of Central Missouri (2011–2015), Trevor went on to have a brief professional stint with the Wichita Wingnuts before transitioning into coaching — bringing real, lived experience at the highest amateur and professional levels.
+            </p>
+            <p>
+              With over 7 years of coaching experience and a Master's Degree in Exercise Science, the approach at Top Flight is grounded in both science and real-world performance. Every program is built with intention — because what you do between sessions matters just as much as what you do in the cage.
+            </p>
+            <p>
+              Every TFP athlete trains in a 2-on-1 format and receives a complete training program through the TrainHeroic app, ensuring structured development continues long after the lesson ends.
+            </p>
+          </div>
+          <div class="coach-credentials">
+            <h4>Credentials &amp; Background</h4>
+            <ul class="credential-list">
+              <li>Master's Degree in Exercise Science</li>
+              <li>Certified Strength & Conditioning Specialist (CSCS)</li>
+              <li>Champion Performance Specialist (C-PS)</li>
+              <li>4-Year College Baseball — Univ. of Central Missouri (2011–2015)</li>
+              <li>Professional Baseball — Wichita Wingnuts</li>
+              <li>7+ Years Coaching Experience</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+
+      <!-- COACH ZACH -->
+      <div class="coach-card reverse">
+        <div class="coach-image">
+          <img src="images/zach.jpeg" alt="Zach McCloud - Hitting Coordinator" class="coach-photo" />
+        </div>
+        <div class="coach-info">
+          <p class="section-label">Hitting Coordinator</p>
+          <h2 class="coach-name">Zach McCloud</h2>
+          <p class="coach-title">TFP Hitting Coordinator</p>
+          <div class="section-divider"></div>
+          <div class="coach-bio">
+            <p>
+              Zach brings an elite playing background and a deep understanding of what it takes to develop as a hitter at every level. Having played college baseball at Mid-America Nazarene (2011–2014), he understands first-hand the work and discipline it takes to compete at the collegiate level.
+            </p>
+            <p>
+              Before joining TFP, Zach served as Hitting Coach at Hesston College for two seasons (2021–2022), where the offense broke numerous single-season records. He then moved on to MidAmerica Nazarene in 2023, where the team reached the World Series for only the second time in program history — and won their first-ever game at the World Series.
+            </p>
+            <p>
+              Since coaching at the college level, Zach has had the opportunity to work with hitters at every level — youth, high school, college, independent league, Minor League, and MLB-experienced hitters. As TFP's Hitting Coordinator, he brings that depth of experience into the cage every single session.
+            </p>
+          </div>
+          <div class="coach-credentials">
+            <h4>Credentials &amp; Background</h4>
+            <ul class="credential-list">
+              <li>TFP Hitting Coordinator</li>
+              <li>Hitting Coach — MidAmerica Nazarene (2023, World Series)</li>
+              <li>Hitting Coach — Hesston College (2021–2022)</li>
+              <li>Certified Personal Trainer — NASM</li>
+              <li>College Baseball — Mid-America Nazarene (2011–2014)</li>
+              <li>Experience with Youth through MLB-Level Hitters</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- MISSION -->
+  <section class="mission-section">
+    <div class="mission-inner">
+      <p class="section-label">Our Philosophy</p>
+      <h2>Built on <span>Belief</span></h2>
+      <div class="section-divider center"></div>
+      <p>
+        Most facilities sell you a lesson pack, put your athlete in a cage, and send them home. At Top Flight Performance, we do things differently.
+      </p>
+      <p>
+        Our model is built around one simple belief — random lessons don't create elite athletes. Structured, intentional development does. We develop the complete athlete, not just the swing.
+      </p>
+    </div>
+  </section>
+
+  <!-- CTA BANNER -->
+  <section class="cta-banner">
+    <h2>Train With The Best</h2>
+    <p>Book your evaluation and start your development journey with Top Flight.</p>
+    <a href="contact.html" class="btn-outline">Book Your Evaluation</a>
+  </section>
+
+  <!-- INSTAGRAM CTA -->
+  <div class="instagram-cta">
+    <a href="https://www.instagram.com/top_flight_performance/" target="_blank" rel="noopener noreferrer" class="instagram-btn">Follow Us on Instagram</a>
+  </div>
+
+  <!-- FOOTER -->
+  <footer>
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <a href="index.html" class="footer-logo">Top <span>Flight</span> Performance</a>
+        <p>High Performance Hitting Development. Helping hitters go from good to great through structured, intentional athlete development.</p>
+      </div>
+      <div class="footer-col">
+        <h4>Quick Links</h4>
+        <ul>
+          <li><a href="index.html">Home</a></li>
+          <li><a href="services.html">Services</a></li>
+          <li><a href="about.html">About</a></li>
+          <li><a href="contact.html">Book Now</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Hitting Lessons</h4>
+        <ul>
+          <li><a href="locations/hitting-lessons-overland-park.html">Overland Park</a></li>
+          <li><a href="locations/hitting-lessons-lenexa.html">Lenexa</a></li>
+          <li><a href="locations/hitting-lessons-shawnee.html">Shawnee</a></li>
+          <li><a href="locations/hitting-lessons-leawood.html">Leawood</a></li>
+          <li><a href="locations/hitting-lessons-gardner.html">Gardner</a></li>
+          <li><a href="locations/hitting-lessons-spring-hill.html">Spring Hill</a></li>
+          <li><a href="locations/hitting-lessons-kansas-city.html">Kansas City</a></li>
+          <li><a href="locations/hitting-lessons-prairie-village.html">Prairie Village</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Baseball &amp; Strength</h4>
+        <ul>
+          <li><a href="locations/baseball-training-overland-park.html">Baseball – Overland Park</a></li>
+          <li><a href="locations/baseball-training-lenexa.html">Baseball – Lenexa</a></li>
+          <li><a href="locations/baseball-training-shawnee.html">Baseball – Shawnee</a></li>
+          <li><a href="locations/baseball-training-kansas-city.html">Baseball – Kansas City</a></li>
+          <li><a href="locations/baseball-training-gardner.html">Baseball – Gardner</a></li>
+          <li><a href="locations/strength-training-overland-park.html">Strength – Overland Park</a></li>
+          <li><a href="locations/strength-training-kansas-city.html">Strength – Kansas City</a></li>
+          <li><a href="locations/strength-training-lenexa.html">Strength – Lenexa</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Contact</h4>
+        <div class="footer-contact-item">
+          <span class="icon">📞</span>
+          <span><a href="tel:9132957930" style="color:#aaa;text-decoration:none;">913-295-7930</a></span>
+        </div>
+        <div class="footer-contact-item">
+          <span class="icon">📍</span>
+          <span>2133 E Kansas City Rd.<br />Olathe, KS 66061</span>
+        </div>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>&copy; 2025 Top Flight Performance. All Rights Reserved.</p>
+    </div>
+  </footer>
+
+  <script>
+    function toggleNav() {
+      document.getElementById('navLinks').classList.toggle('open');
+    }
+  </script>
+
+</body>
+</html>

@@ -589,14 +589,12 @@
       border-left: 4px solid var(--red);
       position: relative;
       z-index: 2;
-      transition: transform 0.3s ease, box-shadow 0.3s ease, background 0.3s ease, border-left-width 0.3s ease;
+      transition: background 0.3s ease, box-shadow 0.3s ease;
     }
 
     .testimonial-card:hover {
-      transform: translateY(-4px);
-      background: rgba(255, 255, 255, 0.95);
-      box-shadow: 0 12px 28px rgba(0, 0, 0, 0.08), 0 0 0 1px rgba(200, 16, 46, 0.08);
-      border-left-width: 6px;
+      background: rgba(255, 255, 255, 0.98);
+      box-shadow: 0 6px 20px rgba(0, 0, 0, 0.08), 0 0 0 1px rgba(200, 16, 46, 0.1);
     }
 
     .quote-mark {
@@ -1444,9 +1442,6 @@
             </ul>
           </div>
         </div>
-      </div>
-
-      <div class="athletes-grid" style="margin-top: 1rem;">
         <div class="athlete-badge" data-team="phillies" onclick="toggleAthleteCard(this)">Daniel Harper
           <div class="athlete-card">
             <div class="athlete-card-header">Daniel Harper <span>RHP | Philadelphia Phillies (AAA)</span></div>

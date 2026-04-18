@@ -831,8 +831,28 @@ footer {
     gap: 1.5rem;
   }
 
-  .athlete-badge {
-    font-size: 0.75rem;
-    padding: 0.5rem 1rem;
+  /* Athletes grid: compact 2x2x2x1 stack, centered last item */
+  .athletes-grid {
+    display: grid !important;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 0.5rem;
+    max-width: 420px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .athletes-grid .athlete-badge {
+    font-size: 0.7rem;
+    padding: 0.45rem 0.6rem;
+    text-align: center;
+    width: 100%;
+    letter-spacing: 1px;
+  }
+
+  /* Center the 7th (orphan) badge on its own row */
+  .athletes-grid .athlete-badge:nth-child(7) {
+    grid-column: 1 / -1;
+    max-width: calc(50% - 0.25rem);
+    justify-self: center;
   }
 }

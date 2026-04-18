@@ -13,7 +13,7 @@
   <meta property="og:description" content="Trevor Jones and Zach McCloud bring college and professional baseball experience to every session at TFP." />
   <meta property="og:type" content="website" />
   <meta property="og:url" content="https://www.topflightperformance.com/about.html" />
-  <meta property="og:image" content="https://www.topflightperformance.com/images/logo1.png" />
+  <meta property="og:image" content="https://top-flight-performance.bjatwell21.workers.dev/images/fulllogo.png" />
 
   <script type="application/ld+json">
   [{
@@ -40,6 +40,31 @@
 
   <link rel="stylesheet" href="styles.css" />
   <style>
+    /* ===== PAGE LOAD ANIMATIONS ===== */
+    @keyframes heroFadeUp {
+      from { opacity: 0; transform: translateY(25px); }
+      to   { opacity: 1; transform: translateY(0); }
+    }
+
+    @keyframes coachSlideInLeft {
+      from { opacity: 0; transform: translateX(-40px); }
+      to   { opacity: 1; transform: translateX(0); }
+    }
+
+    @keyframes coachSlideInRight {
+      from { opacity: 0; transform: translateX(40px); }
+      to   { opacity: 1; transform: translateX(0); }
+    }
+
+    .page-hero .section-label,
+    .page-hero h1 {
+      opacity: 0;
+      animation: heroFadeUp 0.7s ease forwards;
+    }
+
+    .page-hero .section-label { animation-delay: 0.1s; }
+    .page-hero h1 { animation-delay: 0.25s; }
+
     /* ===== COACHES SECTION ===== */
     .coaches-section {
       padding: 6rem 4rem;
@@ -59,7 +84,14 @@
       margin-bottom: 5rem;
       padding-bottom: 5rem;
       border-bottom: 1px solid #e5e5e5;
+      opacity: 0;
+      animation: coachSlideInLeft 0.9s ease forwards;
     }
+
+    .coach-card:nth-of-type(1) { animation-delay: 0.5s; }
+    .coach-card:nth-of-type(2) { animation-delay: 0.75s; animation-name: coachSlideInRight; }
+    .coach-card:nth-of-type(3) { animation-delay: 1s; }
+    .coach-card:nth-of-type(4) { animation-delay: 1.25s; animation-name: coachSlideInRight; }
 
     .coach-card:last-child {
       border-bottom: none;

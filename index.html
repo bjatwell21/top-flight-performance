@@ -14,7 +14,7 @@
   <meta property="og:description" content="Elite 2-on-1 hitting lessons, strength training, and speed development for athletes ages 12 to pro in Olathe, KS." />
   <meta property="og:type" content="website" />
   <meta property="og:url" content="https://www.topflightperformance.com/" />
-  <meta property="og:image" content="https://www.topflightperformance.com/images/logo1.png" />
+  <meta property="og:image" content="https://top-flight-performance.bjatwell21.workers.dev/images/fulllogo.png" />
   <meta property="og:locale" content="en_US" />
   <meta property="og:site_name" content="Top Flight Performance" />
 
@@ -22,7 +22,7 @@
   <meta name="twitter:card" content="summary_large_image" />
   <meta name="twitter:title" content="Top Flight Performance | High Performance Hitting Development" />
   <meta name="twitter:description" content="Elite 2-on-1 hitting lessons, strength training, and speed development in Olathe, KS." />
-  <meta name="twitter:image" content="https://www.topflightperformance.com/images/logo1.png" />
+  <meta name="twitter:image" content="https://top-flight-performance.bjatwell21.workers.dev/images/fulllogo.png" />
 
   <!-- Schema: LocalBusiness -->
   <script type="application/ld+json">
@@ -47,7 +47,7 @@
       "latitude": 38.8814,
       "longitude": -94.7717
     },
-    "image": "https://www.topflightperformance.com/images/logo1.png",
+    "image": "https://top-flight-performance.bjatwell21.workers.dev/images/fulllogo.png",
     "priceRange": "$$",
     "openingHoursSpecification": {
       "@type": "OpeningHoursSpecification",
@@ -589,6 +589,14 @@
       border-left: 4px solid var(--red);
       position: relative;
       z-index: 2;
+      transition: transform 0.3s ease, box-shadow 0.3s ease, background 0.3s ease, border-left-width 0.3s ease;
+    }
+
+    .testimonial-card:hover {
+      transform: translateY(-4px);
+      background: rgba(255, 255, 255, 0.95);
+      box-shadow: 0 12px 28px rgba(0, 0, 0, 0.08), 0 0 0 1px rgba(200, 16, 46, 0.08);
+      border-left-width: 6px;
     }
 
     .quote-mark {
@@ -1110,47 +1118,11 @@
         border-bottom: none;
       }
 
-      /* --- INSTAGRAM: thumbnail grid on mobile --- */
-      .instagram-embeds {
-        display: none !important;
-      }
-
+      /* --- INSTAGRAM: tighter mobile overrides --- */
       .instagram-thumb-grid {
-        display: grid !important;
-        grid-template-columns: repeat(2, 1fr);
-        gap: 0.5rem;
-        margin-top: 1.5rem;
-      }
-
-      .instagram-thumb-grid a {
-        display: block;
-        position: relative;
-        aspect-ratio: 1;
-        overflow: hidden;
-        border-radius: 4px;
-        background: #222;
-      }
-
-      .instagram-thumb-grid a img {
-        width: 100%;
-        height: 100%;
-        object-fit: cover;
-        transition: transform 0.3s ease;
-      }
-
-      .instagram-thumb-grid a:hover img {
-        transform: scale(1.05);
-      }
-
-      .instagram-thumb-grid a::after {
-        content: '';
-        position: absolute;
-        top: 0;
-        left: 0;
-        width: 100%;
-        height: 100%;
-        background: linear-gradient(to top, rgba(0,0,0,0.4) 0%, transparent 40%);
-        pointer-events: none;
+        grid-template-columns: repeat(2, 1fr) !important;
+        gap: 0.5rem !important;
+        margin-top: 1.5rem !important;
       }
 
       /* --- TESTIMONIALS: carousel on mobile --- */
@@ -1216,9 +1188,91 @@
       }
     }
 
-    /* Hide mobile-only elements by default */
+    /* Hide the real Instagram embeds — we use static thumbnails everywhere */
+    .instagram-embeds {
+      display: none !important;
+    }
+
+    /* Instagram thumbnail grid — 4 across on desktop, 2 across on mobile (via media query) */
     .instagram-thumb-grid {
-      display: none;
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      column-gap: 1rem;
+      row-gap: 1rem;
+      margin-top: 2.5rem;
+      width: 100%;
+      box-sizing: border-box;
+    }
+
+    .instagram-thumb-grid a {
+      box-sizing: border-box;
+      width: 100%;
+    }
+
+    .instagram-thumb-grid a {
+      display: block;
+      position: relative;
+      aspect-ratio: 1;
+      overflow: hidden;
+      border-radius: 4px;
+      background: #222;
+      text-decoration: none;
+    }
+
+    .instagram-thumb-grid a img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: transform 0.4s ease, filter 0.4s ease;
+    }
+
+    /* ig2 specifically — bias crop toward top so head isn't clipped */
+    .instagram-thumb-grid a img[src*="ig2"] {
+      object-position: center top;
+    }
+
+    .instagram-thumb-grid a:hover img {
+      transform: scale(1.08);
+      filter: brightness(0.55);
+    }
+
+    .instagram-thumb-grid a::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(to top, rgba(0,0,0,0.4) 0%, transparent 40%);
+      pointer-events: none;
+      z-index: 1;
+      transition: opacity 0.3s ease;
+    }
+
+    .instagram-thumb-grid a:hover::before {
+      opacity: 0;
+    }
+
+    /* "View on Instagram" overlay revealed on hover */
+    .instagram-thumb-grid a::after {
+      content: 'View on Instagram';
+      position: absolute;
+      inset: 0;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-family: 'Oswald', sans-serif;
+      font-size: 0.8rem;
+      font-weight: 600;
+      color: var(--white);
+      text-transform: uppercase;
+      letter-spacing: 2px;
+      text-shadow: 0 2px 8px rgba(0,0,0,0.7);
+      opacity: 0;
+      transition: opacity 0.3s ease;
+      z-index: 2;
+      pointer-events: none;
+    }
+
+    .instagram-thumb-grid a:hover::after {
+      opacity: 1;
     }
 
     .carousel-dots {
@@ -1523,9 +1577,9 @@
         </div>
         <div class="testimonial-card fade-in">
           <div class="quote-mark">&ldquo;</div>
-          <p>Since starting with Top Flight Performance, I've noticed an increase in my athletic ability and power. The training program and coaching have been positive and motivating and I've noticed a significant increase in my arm strength and exit velo.</p>
-          <div class="testimonial-author">Lily Winright</div>
-          <div class="testimonial-role">17 | Emporia State</div>
+          <p>Sets up a professional level atmosphere in the cage.</p>
+          <div class="testimonial-author">Caleb Marquez</div>
+          <div class="testimonial-role">C/1B | Milwaukee Brewers Organization</div>
         </div>
       </div>
       <div class="carousel-dots" id="carouselDots"></div>
@@ -1547,19 +1601,18 @@
         <blockquote class="instagram-media" data-instgrm-captioned data-instgrm-permalink="https://www.instagram.com/reel/DV1DHF-BhM8/?utm_source=ig_embed&amp;utm_campaign=loading" data-instgrm-version="14" style=" background:#FFF; border:0; border-radius:3px; box-shadow:0 0 1px 0 rgba(0,0,0,0.5),0 1px 10px 0 rgba(0,0,0,0.15); margin: 1px; max-width:540px; min-width:326px; padding:0; width:99.375%; width:-webkit-calc(100% - 2px); width:calc(100% - 2px);"><div style="padding:16px;"> <a href="https://www.instagram.com/reel/DV1DHF-BhM8/?utm_source=ig_embed&amp;utm_campaign=loading" style=" background:#FFFFFF; line-height:0; padding:0 0; text-align:center; text-decoration:none; width:100%;" target="_blank"><div style="padding-top: 8px;"> <div style=" color:#3897f0; font-family:Arial,sans-serif; font-size:14px; font-style:normal; font-weight:550; line-height:18px;">View this post on Instagram</div></div></a><p style=" color:#c9c8cd; font-family:Arial,sans-serif; font-size:14px; line-height:17px; margin-bottom:0; margin-top:8px; overflow:hidden; padding:8px 0 7px; text-align:center; text-overflow:ellipsis; white-space:nowrap;"><a href="https://www.instagram.com/reel/DV1DHF-BhM8/?utm_source=ig_embed&amp;utm_campaign=loading" style=" color:#c9c8cd; font-family:Arial,sans-serif; font-size:14px; font-style:normal; font-weight:normal; line-height:17px; text-decoration:none;" target="_blank">A post shared by Top Flight Performance (@top_flight_performance)</a></p></div></blockquote>
         <blockquote class="instagram-media" data-instgrm-captioned data-instgrm-permalink="https://www.instagram.com/reel/DVdwrShgD-I/?utm_source=ig_embed&amp;utm_campaign=loading" data-instgrm-version="14" style=" background:#FFF; border:0; border-radius:3px; box-shadow:0 0 1px 0 rgba(0,0,0,0.5),0 1px 10px 0 rgba(0,0,0,0.15); margin: 1px; max-width:540px; min-width:326px; padding:0; width:99.375%; width:-webkit-calc(100% - 2px); width:calc(100% - 2px);"><div style="padding:16px;"> <a href="https://www.instagram.com/reel/DVdwrShgD-I/?utm_source=ig_embed&amp;utm_campaign=loading" style=" background:#FFFFFF; line-height:0; padding:0 0; text-align:center; text-decoration:none; width:100%;" target="_blank"><div style="padding-top: 8px;"> <div style=" color:#3897f0; font-family:Arial,sans-serif; font-size:14px; font-style:normal; font-weight:550; line-height:18px;">View this post on Instagram</div></div></a><p style=" color:#c9c8cd; font-family:Arial,sans-serif; font-size:14px; line-height:17px; margin-bottom:0; margin-top:8px; overflow:hidden; padding:8px 0 7px; text-align:center; text-overflow:ellipsis; white-space:nowrap;"><a href="https://www.instagram.com/reel/DVdwrShgD-I/?utm_source=ig_embed&amp;utm_campaign=loading" style=" color:#c9c8cd; font-family:Arial,sans-serif; font-size:14px; font-style:normal; font-weight:normal; line-height:17px; text-decoration:none;" target="_blank">A post shared by Top Flight Performance (@top_flight_performance)</a></p></div></blockquote>
       </div>
-      <script async src="//www.instagram.com/embed.js"></script>
       <div class="instagram-thumb-grid">
         <a href="https://www.instagram.com/p/DO1HTD9kWhF/" target="_blank" rel="noopener noreferrer">
-          <img src="images/newhero.jpeg" alt="TFP training highlight" />
+          <img src="images/ig1.png" alt="TFP Instagram post" />
         </a>
         <a href="https://www.instagram.com/reel/DW33JcGgK9D/" target="_blank" rel="noopener noreferrer">
-          <img src="images/hero1.jpeg" alt="TFP training highlight" />
+          <img src="images/ig2.png" alt="TFP Instagram post" />
         </a>
         <a href="https://www.instagram.com/reel/DV1DHF-BhM8/" target="_blank" rel="noopener noreferrer">
-          <img src="images/hero2.jpeg" alt="TFP training highlight" />
+          <img src="images/ig3.png" alt="TFP Instagram post" />
         </a>
         <a href="https://www.instagram.com/reel/DVdwrShgD-I/" target="_blank" rel="noopener noreferrer">
-          <img src="images/hero3.jpeg" alt="TFP training highlight" />
+          <img src="images/ig4.png" alt="TFP Instagram post" />
         </a>
       </div>
       <a href="https://www.instagram.com/top_flight_performance/" target="_blank" rel="noopener noreferrer" class="instagram-link">

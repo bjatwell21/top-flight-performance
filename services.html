@@ -68,6 +68,10 @@
       font-size: 6vw !important;
     }
 
+    .services-hero-mobile-header {
+      display: none;
+    }
+
     .services-hero-panel {
       position: relative;
       overflow: hidden;
@@ -121,26 +125,67 @@
 
     @media (max-width: 900px) {
       .services-hero {
-        grid-template-columns: repeat(2, 1fr);
+        grid-template-columns: 1fr 1fr;
+        height: auto;
+        padding-top: 72px;
+      }
+
+      /* Hide the center logo on mobile — we show a header instead */
+      .services-hero-logo {
+        display: none;
+      }
+
+      /* Mobile hero header */
+      .services-hero-mobile-header {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        padding: 2rem 1.5rem;
+        background: var(--black);
+        text-align: center;
+        grid-column: 1 / -1;
+      }
+
+      .services-hero-mobile-header h1 {
+        font-family: 'Graduate', serif;
+        font-size: 1.8rem;
+        font-weight: 400;
+        color: var(--white);
+        text-transform: uppercase;
+        letter-spacing: 4px;
+        line-height: 1.2;
+      }
+
+      .services-hero-mobile-header .section-divider {
+        margin: 1rem auto 0;
+      }
+
+      /* 2x2 grid of square panels */
+      .services-hero-panel {
+        aspect-ratio: 1;
         height: auto;
       }
 
-      .services-hero-panel {
-        height: 50vh;
+      .services-hero-panel img {
+        object-position: center center;
       }
 
       .panel-label {
-        font-size: 1.5rem;
-      }
-    }
-
-    @media (max-width: 500px) {
-      .services-hero {
-        grid-template-columns: 1fr;
+        font-size: 1.3rem;
+        bottom: 50%;
+        left: 50%;
+        transform: translate(-50%, 50%);
+        text-shadow: 0 2px 15px rgba(0,0,0,0.8), 0 0 40px rgba(0,0,0,0.6);
       }
 
-      .services-hero-panel {
-        height: 40vh;
+      .panel-bw {
+        filter: brightness(0.45);
+        transition: opacity 0.8s ease;
+      }
+
+      .services-hero-panel.color-active .panel-bw {
+        opacity: 0;
       }
     }
 
@@ -362,11 +407,17 @@
       .service-block {
         display: flex;
         flex-direction: column;
-        gap: 2rem;
+        gap: 1.5rem;
       }
 
       .service-visual {
-        aspect-ratio: 16/9;
+        aspect-ratio: 4/3;
+        border-radius: 4px;
+        overflow: hidden;
+      }
+
+      .service-photo {
+        object-position: center 20%;
       }
 
       .who-inner {
@@ -383,9 +434,6 @@
     }
 
     @media (max-width: 600px) {
-      .services-hero-logo span {
-        font-size: 6vw !important;
-      }
 
       .services-section {
         padding: 3rem 1.5rem;
@@ -400,6 +448,7 @@
       }
     }
   </style>
+  <script src="preview-banner.js" defer></script>
 </head>
 <body>
 
@@ -409,9 +458,16 @@
     <ul class="nav-links" id="navLinks">
       <li><a href="index.html">Home</a></li>
       <li><a href="services.html">Services</a></li>
-      <li><a href="about.html">Coaches</a></li>
-      <li><a href="testimonials.html">Testimonials</a></li>
-      <li><a href="contact.html" class="btn-nav">Contact Us</a></li>
+      <li class="nav-dropdown" onclick="this.classList.toggle('open')">
+        <a href="#">About</a>
+        <ul class="dropdown-menu">
+          <li><a href="about.html">Coaches</a></li>
+          <li><a href="testimonials.html">Testimonials</a></li>
+          <li><a href="blog.html">Blog</a></li>
+          <li><a href="contact.html">Contact Us</a></li>
+        </ul>
+      </li>
+      <li><a href="booking.html" class="btn-nav">Book Now</a></li>
     </ul>
     <div class="hamburger" onclick="toggleNav()">
       <span></span><span></span><span></span>
@@ -423,6 +479,10 @@
     <div class="services-hero-logo">
       <span>Building A</span>
       <span>Complete Athlete</span>
+    </div>
+    <div class="services-hero-mobile-header">
+      <h1>Building A<br />Complete Athlete</h1>
+      <div class="section-divider center"></div>
     </div>
     <a href="#hitting" class="services-hero-panel">
       <img src="images/newhero-bw.jpeg" alt="Hitting" class="panel-bw" />
@@ -473,7 +533,7 @@
             <div class="service-detail-item">TrainHeroic app programming between sessions</div>
             <div class="service-detail-item">Ages 12 to pro level</div>
           </div>
-          <a href="contact.html" class="btn-primary" style="margin-top:2rem;">Book a Session</a>
+          <a href="booking.html" class="btn-primary" style="margin-top:2rem;">Book a Session</a>
         </div>
       </div>
 
@@ -525,14 +585,14 @@
             <div class="service-detail-item">Integrated with strength programming</div>
             <div class="service-detail-item">Full-body athletic development</div>
           </div>
-          <a href="contact.html" class="btn-primary" style="margin-top:2rem;">Book a Session</a>
+          <a href="booking.html" class="btn-primary" style="margin-top:2rem;">Book a Session</a>
         </div>
       </div>
 
       <!-- Team Training -->
       <div class="service-block reverse" id="team">
         <div class="service-visual">
-          <img src="images/team.jpeg" alt="TFP team training session" class="service-photo" />
+          <img src="images/team.jpeg" alt="TFP team training session" class="service-photo" style="object-position: center 45%;" />
         </div>
         <div class="service-content">
           <div class="service-number">04</div>
@@ -668,6 +728,23 @@
     function toggleNav() {
       document.getElementById('navLinks').classList.toggle('open');
     }
+
+    // Cycle color highlight on hero panels (mobile)
+    (function() {
+      if (window.innerWidth > 900) return;
+      var panels = document.querySelectorAll('.services-hero-panel');
+      if (!panels.length) return;
+      var current = 0;
+
+      function cycle() {
+        panels.forEach(function(p) { p.classList.remove('color-active'); });
+        panels[current].classList.add('color-active');
+        current = (current + 1) % panels.length;
+      }
+
+      cycle();
+      setInterval(cycle, 2500);
+    })();
   </script>
 
 </body>

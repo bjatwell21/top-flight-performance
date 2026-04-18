@@ -301,6 +301,7 @@
       }
     }
   </style>
+  <script src="preview-banner.js" defer></script>
 </head>
 <body>
 
@@ -310,9 +311,16 @@
     <ul class="nav-links" id="navLinks">
       <li><a href="index.html">Home</a></li>
       <li><a href="services.html">Services</a></li>
-      <li><a href="about.html">Coaches</a></li>
-      <li><a href="testimonials.html">Testimonials</a></li>
-      <li><a href="contact.html" class="btn-nav">Contact Us</a></li>
+      <li class="nav-dropdown" onclick="this.classList.toggle('open')">
+        <a href="#">About</a>
+        <ul class="dropdown-menu">
+          <li><a href="about.html">Coaches</a></li>
+          <li><a href="testimonials.html">Testimonials</a></li>
+          <li><a href="blog.html">Blog</a></li>
+          <li><a href="contact.html">Contact Us</a></li>
+        </ul>
+      </li>
+      <li><a href="booking.html" class="btn-nav">Book Now</a></li>
     </ul>
     <div class="hamburger" id="hamburger" onclick="toggleNav()">
       <span></span><span></span><span></span>
@@ -421,7 +429,7 @@
   <section class="cta-banner">
     <h2>Train With The Best</h2>
     <p>Book your evaluation and start your development journey with Top Flight.</p>
-    <a href="contact.html" class="btn-outline">Book Your Evaluation</a>
+    <a href="booking.html" class="btn-outline">Book Now</a>
   </section>
 
   <!-- INSTAGRAM CTA -->

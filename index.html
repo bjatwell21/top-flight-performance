@@ -546,7 +546,7 @@
       z-index: 0;
       pointer-events: none;
       will-change: transform;
-      opacity: 0.15;
+      opacity: 0.25;
     }
 
     .rolling-baseball img {
@@ -844,16 +844,76 @@
     @media (max-width: 900px) {
       .hero {
         grid-template-columns: 1fr;
-        min-height: auto;
+        height: 100vh;
+        height: 100dvh;
+        position: relative;
       }
 
+      /* Image becomes fullscreen background */
       .hero-image {
-        height: 50vh;
-        order: -1;
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        z-index: 0;
       }
 
       .hero-image::after {
-        background: linear-gradient(to top, var(--black) 0%, transparent 40%);
+        background: linear-gradient(
+          to top,
+          rgba(13,13,13,0.95) 0%,
+          rgba(13,13,13,0.75) 40%,
+          rgba(13,13,13,0.4) 70%,
+          rgba(13,13,13,0.2) 100%
+        );
+      }
+
+      .hero-accent {
+        display: none;
+      }
+
+      /* Content overlays on top */
+      .hero-content {
+        position: relative;
+        z-index: 2;
+        padding: 0 2rem 4rem;
+        justify-content: flex-end;
+        align-items: stretch;
+        height: 100%;
+        width: 100%;
+        max-width: 100vw;
+      }
+
+      /* Switch from outline to solid filled text on mobile */
+      .hero h1 {
+        -webkit-text-stroke: 0;
+        color: var(--white);
+        font-size: clamp(2.8rem, 11vw, 4.5rem);
+      }
+
+      .hero h1 em {
+        -webkit-text-stroke: 0;
+        background: linear-gradient(180deg, #ff2a40 0%, var(--red) 40%, var(--red-dark) 100%);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        background-clip: text;
+        font-style: normal;
+      }
+
+      .hero-btns {
+        flex-direction: column;
+        gap: 0.75rem;
+      }
+
+      .hero-btns .btn-primary,
+      .hero-btns .btn-outline {
+        text-align: center;
+        width: 100%;
+      }
+
+      .hero-stats {
+        display: none;
       }
     }
 
@@ -867,12 +927,22 @@
         height: 40vh;
       }
 
+      .panel-bw-home {
+        transition: opacity 0.8s ease;
+      }
+
+      .services-hero-panel-home.color-active .panel-bw-home {
+        opacity: 0;
+      }
+
       .services-hero-home-logo span {
-        font-size: 4vw;
+        font-size: 5vw;
       }
 
       .panel-label-home {
         font-size: 1.4rem;
+        bottom: 50%;
+        transform: translate(-50%, 50%);
       }
 
       .why-section {
@@ -881,14 +951,6 @@
     }
 
     @media (max-width: 600px) {
-      .hero-content {
-        padding: 2rem 1.5rem;
-      }
-
-      .hero h1 {
-        font-size: clamp(2rem, 8vw, 3.5rem);
-      }
-
       .hero-sub {
         font-size: 0.95rem;
         margin-bottom: 1.5rem;
@@ -904,12 +966,13 @@
       }
 
       .services-hero-home-logo span {
-        font-size: 7vw;
+        font-size: 9vw;
       }
 
       .panel-label-home {
-        font-size: 1rem;
-        bottom: 1rem;
+        font-size: 1.1rem;
+        bottom: 50%;
+        transform: translate(-50%, 50%);
       }
 
       .why-section,
@@ -944,8 +1007,225 @@
       .testimonials-grid {
         grid-template-columns: 1fr;
       }
+
+      /* --- ATHLETES STATS BAR: wrap on small screens --- */
+      .athletes-stats-bar {
+        flex-wrap: wrap;
+        gap: 1rem 2rem;
+        justify-content: center;
+      }
+
+      .athletes-stat h4 {
+        font-size: 1.5rem;
+      }
+
+      .athletes-stat p {
+        font-size: 0.6rem;
+        letter-spacing: 1px;
+      }
+
+      /* --- ATHLETE CARD POPUPS: fixed position on mobile --- */
+      /* Hide the inline card on mobile — we use the body-level clone instead */
+      .athlete-badge .athlete-card {
+        display: none !important;
+      }
+
+      .athlete-card-mobile {
+        display: none;
+        position: fixed;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        width: calc(100vw - 2rem);
+        max-width: 340px;
+        z-index: 10000;
+        background: var(--dark2);
+        border: 1px solid var(--red);
+        border-top: 3px solid var(--red);
+        padding: 1.25rem 1.5rem;
+        border-radius: 4px;
+        text-align: left;
+        box-shadow: 0 8px 30px rgba(0,0,0,0.4);
+        animation: mobileCardIn 0.3s ease;
+      }
+
+      .athlete-card-mobile.active {
+        display: block;
+      }
+
+      @keyframes mobileCardIn {
+        from { opacity: 0; transform: translate(-50%, -50%) scale(0.95); }
+        to { opacity: 1; transform: translate(-50%, -50%) scale(1); }
+      }
+
+      .athlete-card-mobile .athlete-card-top {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        margin-bottom: 0.75rem;
+      }
+
+      .athlete-card-mobile .athlete-card-header {
+        font-family: 'Oswald', sans-serif;
+        font-size: 1.1rem;
+        font-weight: 700;
+        color: var(--white);
+        text-transform: uppercase;
+        letter-spacing: 1px;
+      }
+
+      .athlete-card-mobile .athlete-card-header span {
+        display: block;
+        font-size: 0.75rem;
+        font-weight: 400;
+        color: var(--red);
+        letter-spacing: 2px;
+        margin-top: 0.2rem;
+      }
+
+      .athlete-card-mobile .athlete-card-img {
+        width: 100px;
+        height: 100px;
+        object-fit: contain;
+        border-radius: 4px;
+        flex-shrink: 0;
+      }
+
+      .athlete-card-mobile ul {
+        list-style: none;
+        padding: 0;
+        margin: 0;
+      }
+
+      .athlete-card-mobile ul li {
+        font-family: 'Inter', sans-serif;
+        font-size: 0.8rem;
+        color: #ccc;
+        line-height: 1.5;
+        padding: 0.3rem 0;
+        border-bottom: 1px solid #333;
+      }
+
+      .athlete-card-mobile ul li:last-child {
+        border-bottom: none;
+      }
+
+      /* --- INSTAGRAM: thumbnail grid on mobile --- */
+      .instagram-embeds {
+        display: none !important;
+      }
+
+      .instagram-thumb-grid {
+        display: grid !important;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 0.5rem;
+        margin-top: 1.5rem;
+      }
+
+      .instagram-thumb-grid a {
+        display: block;
+        position: relative;
+        aspect-ratio: 1;
+        overflow: hidden;
+        border-radius: 4px;
+        background: #222;
+      }
+
+      .instagram-thumb-grid a img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        transition: transform 0.3s ease;
+      }
+
+      .instagram-thumb-grid a:hover img {
+        transform: scale(1.05);
+      }
+
+      .instagram-thumb-grid a::after {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: linear-gradient(to top, rgba(0,0,0,0.4) 0%, transparent 40%);
+        pointer-events: none;
+      }
+
+      /* --- TESTIMONIALS: carousel on mobile --- */
+      .testimonials-section {
+        padding: 3rem 0;
+        overflow: hidden;
+      }
+
+      .testimonials-inner {
+        max-width: 100vw;
+        overflow: hidden;
+        padding: 0 1.5rem;
+      }
+
+      .testimonials-grid {
+        display: flex !important;
+        overflow-x: auto;
+        scroll-snap-type: x mandatory;
+        -webkit-overflow-scrolling: touch;
+        gap: 0;
+        padding-bottom: 1rem;
+        scrollbar-width: none;
+        max-width: 100%;
+      }
+
+      .testimonials-grid::-webkit-scrollbar {
+        display: none;
+      }
+
+      .testimonial-card {
+        min-width: calc(100vw - 4rem);
+        max-width: calc(100vw - 4rem);
+        scroll-snap-align: center;
+        flex-shrink: 0;
+        margin-right: 1rem;
+        box-sizing: border-box;
+      }
+
+      .testimonial-card:last-child {
+        margin-right: 0;
+      }
+
+      .carousel-dots {
+        display: flex !important;
+        justify-content: center;
+        gap: 0.5rem;
+        margin-top: 1rem;
+      }
+
+      .carousel-dot {
+        width: 8px;
+        height: 8px;
+        border-radius: 50%;
+        background: #ddd;
+        border: none;
+        padding: 0;
+        cursor: pointer;
+        transition: background 0.3s;
+      }
+
+      .carousel-dot.active {
+        background: var(--red);
+      }
+    }
+
+    /* Hide mobile-only elements by default */
+    .instagram-thumb-grid {
+      display: none;
+    }
+
+    .carousel-dots {
+      display: none;
     }
   </style>
+  <script src="preview-banner.js" defer></script>
 </head>
 <body>
 
@@ -955,9 +1235,16 @@
     <ul class="nav-links" id="navLinks">
       <li><a href="index.html">Home</a></li>
       <li><a href="services.html">Services</a></li>
-      <li><a href="about.html">Coaches</a></li>
-      <li><a href="testimonials.html">Testimonials</a></li>
-      <li><a href="contact.html" class="btn-nav">Contact Us</a></li>
+      <li class="nav-dropdown" onclick="this.classList.toggle('open')">
+        <a href="#">About</a>
+        <ul class="dropdown-menu">
+          <li><a href="about.html">Coaches</a></li>
+          <li><a href="testimonials.html">Testimonials</a></li>
+          <li><a href="blog.html">Blog</a></li>
+          <li><a href="contact.html">Contact Us</a></li>
+        </ul>
+      </li>
+      <li><a href="booking.html" class="btn-nav">Book Now</a></li>
     </ul>
     <div class="hamburger" id="hamburger" onclick="toggleNav()">
       <span></span>
@@ -979,7 +1266,7 @@
         Helping hitters go from good to great. Structured, intentional development for athletes who are serious about taking their game to the next level.
       </p>
       <div class="hero-btns hero-fade" style="animation-delay: 1.4s;">
-        <a href="contact.html" class="btn-primary">Book Your Evaluation</a>
+        <a href="booking.html" class="btn-primary">Book Your Evaluation</a>
         <a href="services.html" class="btn-outline">Our Services</a>
       </div>
       <div class="hero-stats hero-fade" style="animation-delay: 1.7s;">
@@ -1032,6 +1319,9 @@
       <span class="panel-label-home">Team</span>
     </a>
   </section>
+
+  <div class="athlete-card-overlay" id="athleteOverlay"></div>
+  <div class="athlete-card-mobile" id="athleteCardMobile"></div>
 
   <!-- NOTABLE ATHLETES -->
   <section class="athletes-section">
@@ -1219,7 +1509,26 @@
           <div class="testimonial-author">Parent of TFP Athlete</div>
           <div class="testimonial-role">Middle School Player</div>
         </div>
+        <div class="testimonial-card fade-in">
+          <div class="quote-mark">&ldquo;</div>
+          <p>Outstanding team at Top Flight, with matching facilities and support. Highly recommend you check this group out if you are looking for results for your young and older athletes!</p>
+          <div class="testimonial-author">Darren Chaffin</div>
+          <div class="testimonial-role">TFP Parent</div>
+        </div>
+        <div class="testimonial-card fade-in">
+          <div class="quote-mark">&ldquo;</div>
+          <p>Since starting with Top Flight Performance, I've built strength and speed in the weight room, which has improved my performance on the field. The training and coaching have been incredible for my growth as a player, helping me increase my pitching velocity by 7 mph.</p>
+          <div class="testimonial-author">Brenden Lee</div>
+          <div class="testimonial-role">17 | University of Evansville</div>
+        </div>
+        <div class="testimonial-card fade-in">
+          <div class="quote-mark">&ldquo;</div>
+          <p>Since starting with Top Flight Performance, I've noticed an increase in my athletic ability and power. The training program and coaching have been positive and motivating and I've noticed a significant increase in my arm strength and exit velo.</p>
+          <div class="testimonial-author">Lily Winright</div>
+          <div class="testimonial-role">17 | Emporia State</div>
+        </div>
       </div>
+      <div class="carousel-dots" id="carouselDots"></div>
       <div style="text-align: center; margin-top: 2.5rem;">
         <a href="testimonials.html" class="btn-primary">See All Testimonials</a>
       </div>
@@ -1239,6 +1548,20 @@
         <blockquote class="instagram-media" data-instgrm-captioned data-instgrm-permalink="https://www.instagram.com/reel/DVdwrShgD-I/?utm_source=ig_embed&amp;utm_campaign=loading" data-instgrm-version="14" style=" background:#FFF; border:0; border-radius:3px; box-shadow:0 0 1px 0 rgba(0,0,0,0.5),0 1px 10px 0 rgba(0,0,0,0.15); margin: 1px; max-width:540px; min-width:326px; padding:0; width:99.375%; width:-webkit-calc(100% - 2px); width:calc(100% - 2px);"><div style="padding:16px;"> <a href="https://www.instagram.com/reel/DVdwrShgD-I/?utm_source=ig_embed&amp;utm_campaign=loading" style=" background:#FFFFFF; line-height:0; padding:0 0; text-align:center; text-decoration:none; width:100%;" target="_blank"><div style="padding-top: 8px;"> <div style=" color:#3897f0; font-family:Arial,sans-serif; font-size:14px; font-style:normal; font-weight:550; line-height:18px;">View this post on Instagram</div></div></a><p style=" color:#c9c8cd; font-family:Arial,sans-serif; font-size:14px; line-height:17px; margin-bottom:0; margin-top:8px; overflow:hidden; padding:8px 0 7px; text-align:center; text-overflow:ellipsis; white-space:nowrap;"><a href="https://www.instagram.com/reel/DVdwrShgD-I/?utm_source=ig_embed&amp;utm_campaign=loading" style=" color:#c9c8cd; font-family:Arial,sans-serif; font-size:14px; font-style:normal; font-weight:normal; line-height:17px; text-decoration:none;" target="_blank">A post shared by Top Flight Performance (@top_flight_performance)</a></p></div></blockquote>
       </div>
       <script async src="//www.instagram.com/embed.js"></script>
+      <div class="instagram-thumb-grid">
+        <a href="https://www.instagram.com/p/DO1HTD9kWhF/" target="_blank" rel="noopener noreferrer">
+          <img src="images/newhero.jpeg" alt="TFP training highlight" />
+        </a>
+        <a href="https://www.instagram.com/reel/DW33JcGgK9D/" target="_blank" rel="noopener noreferrer">
+          <img src="images/hero1.jpeg" alt="TFP training highlight" />
+        </a>
+        <a href="https://www.instagram.com/reel/DV1DHF-BhM8/" target="_blank" rel="noopener noreferrer">
+          <img src="images/hero2.jpeg" alt="TFP training highlight" />
+        </a>
+        <a href="https://www.instagram.com/reel/DVdwrShgD-I/" target="_blank" rel="noopener noreferrer">
+          <img src="images/hero3.jpeg" alt="TFP training highlight" />
+        </a>
+      </div>
       <a href="https://www.instagram.com/top_flight_performance/" target="_blank" rel="noopener noreferrer" class="instagram-link">
         @top_flight_performance
       </a>
@@ -1249,7 +1572,7 @@
   <section class="cta-banner fade-in">
     <h2>Ready to Elevate Your Game?</h2>
     <p>Book your evaluation today and take the first step toward becoming an elite athlete.</p>
-    <a href="contact.html" class="btn-outline">Book Your Evaluation</a>
+    <a href="booking.html" class="btn-outline">Book Now</a>
   </section>
 
   <!-- FOOTER -->
@@ -1317,15 +1640,42 @@
     }
 
     // Athlete card popups
+    var athleteOverlay = document.getElementById('athleteOverlay');
+    var athleteCardMobile = document.getElementById('athleteCardMobile');
+
+    function closeAllAthleteCards() {
+      document.querySelectorAll('.athlete-badge.active').forEach(b => b.classList.remove('active'));
+      if (athleteOverlay) athleteOverlay.style.display = 'none';
+      if (athleteCardMobile) {
+        athleteCardMobile.classList.remove('active');
+        athleteCardMobile.innerHTML = '';
+      }
+    }
+
     function toggleAthleteCard(el) {
       const wasActive = el.classList.contains('active');
-      document.querySelectorAll('.athlete-badge.active').forEach(b => b.classList.remove('active'));
-      if (!wasActive) el.classList.add('active');
+      closeAllAthleteCards();
+      if (!wasActive) {
+        el.classList.add('active');
+        if (window.innerWidth <= 600) {
+          // Clone card content into the body-level container
+          var card = el.querySelector('.athlete-card');
+          if (card && athleteCardMobile) {
+            athleteCardMobile.innerHTML = card.innerHTML;
+            athleteCardMobile.classList.add('active');
+          }
+          if (athleteOverlay) athleteOverlay.style.display = 'block';
+        }
+      }
+    }
+
+    if (athleteOverlay) {
+      athleteOverlay.addEventListener('click', closeAllAthleteCards);
     }
 
     document.addEventListener('click', function(e) {
-      if (!e.target.closest('.athlete-badge')) {
-        document.querySelectorAll('.athlete-badge.active').forEach(b => b.classList.remove('active'));
+      if (!e.target.closest('.athlete-badge') && !e.target.closest('.athlete-card-overlay') && !e.target.closest('.athlete-card-mobile')) {
+        closeAllAthleteCards();
       }
     });
 
@@ -1389,6 +1739,51 @@
         ball.style.transform = 'translateX(' + xPos + 'px) rotate(' + rotation + 'deg)';
       }
     });
+
+    // Testimonials carousel dots (mobile)
+    (function() {
+      const grid = document.querySelector('.testimonials-grid');
+      const cards = grid.querySelectorAll('.testimonial-card');
+      const dotsContainer = document.getElementById('carouselDots');
+      if (!grid || !cards.length || !dotsContainer) return;
+
+      cards.forEach(function(_, i) {
+        var dot = document.createElement('button');
+        dot.className = 'carousel-dot' + (i === 0 ? ' active' : '');
+        dot.setAttribute('aria-label', 'Go to testimonial ' + (i + 1));
+        dot.addEventListener('click', function() {
+          cards[i].scrollIntoView({ behavior: 'smooth', inline: 'center', block: 'nearest' });
+        });
+        dotsContainer.appendChild(dot);
+      });
+
+      var dots = dotsContainer.querySelectorAll('.carousel-dot');
+      grid.addEventListener('scroll', function() {
+        var scrollLeft = grid.scrollLeft;
+        var cardWidth = cards[0].offsetWidth + 16;
+        var activeIndex = Math.round(scrollLeft / cardWidth);
+        dots.forEach(function(d, i) {
+          d.classList.toggle('active', i === activeIndex);
+        });
+      });
+    })();
+
+    // Cycle color highlight on home services panels (mobile)
+    (function() {
+      if (window.innerWidth > 900) return;
+      var panels = document.querySelectorAll('.services-hero-panel-home');
+      if (!panels.length) return;
+      var current = 0;
+
+      function cycle() {
+        panels.forEach(function(p) { p.classList.remove('color-active'); });
+        panels[current].classList.add('color-active');
+        current = (current + 1) % panels.length;
+      }
+
+      cycle();
+      setInterval(cycle, 2500);
+    })();
   </script>
 
 </body>

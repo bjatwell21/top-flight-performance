@@ -1,0 +1,450 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Book Your Evaluation | Top Flight Performance</title>
+  <meta name="description" content="Book your evaluation at Top Flight Performance in Olathe, KS. Schedule your first session and take the first step toward elite hitting development." />
+  <meta name="robots" content="index, follow" />
+  <link rel="canonical" href="https://www.topflightperformance.com/booking.html" />
+
+  <meta property="og:title" content="Book Your Evaluation | Top Flight Performance" />
+  <meta property="og:description" content="Schedule your evaluation at Top Flight Performance. Elite hitting development in Olathe, KS." />
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://www.topflightperformance.com/booking.html" />
+  <meta property="og:image" content="https://www.topflightperformance.com/images/logo1.png" />
+
+  <link rel="stylesheet" href="styles.css" />
+  <style>
+    .booking-section {
+      padding: 4rem 4rem 6rem;
+      background: var(--white);
+    }
+
+    .booking-inner {
+      max-width: 900px;
+      margin: 0 auto;
+    }
+
+    .booking-intro {
+      font-size: 1.05rem;
+      color: #555;
+      line-height: 1.8;
+      max-width: 700px;
+      margin: 0 auto 3rem;
+      text-align: center;
+    }
+
+    /* Evaluation breakdown */
+    .eval-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 3rem;
+      margin-bottom: 3.5rem;
+      align-items: start;
+    }
+
+    .eval-details h3 {
+      font-family: 'Oswald', sans-serif;
+      font-size: 1.6rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      color: var(--black);
+      margin-bottom: 1rem;
+    }
+
+    .eval-details p {
+      font-size: 0.95rem;
+      color: #555;
+      line-height: 1.8;
+      margin-bottom: 1rem;
+    }
+
+    .eval-areas {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+      display: flex;
+      flex-direction: column;
+      gap: 0.5rem;
+    }
+
+    .eval-areas li {
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+      font-size: 0.9rem;
+      color: #444;
+    }
+
+    .eval-areas li::before {
+      content: '';
+      width: 8px;
+      height: 8px;
+      background: var(--red);
+      flex-shrink: 0;
+    }
+
+    .eval-after h3 {
+      font-family: 'Oswald', sans-serif;
+      font-size: 1.6rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      color: var(--black);
+      margin-bottom: 1rem;
+    }
+
+    .eval-after p {
+      font-size: 0.95rem;
+      color: #555;
+      line-height: 1.8;
+      margin-bottom: 1.25rem;
+    }
+
+    .eval-after-list {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+      display: flex;
+      flex-direction: column;
+      gap: 0.6rem;
+    }
+
+    .eval-after-list li {
+      display: flex;
+      align-items: flex-start;
+      gap: 0.75rem;
+      font-size: 0.9rem;
+      color: #444;
+      line-height: 1.5;
+    }
+
+    .eval-after-list li::before {
+      content: '';
+      width: 8px;
+      height: 8px;
+      background: var(--red);
+      flex-shrink: 0;
+      margin-top: 0.35rem;
+    }
+
+    .eval-bottom-line {
+      font-size: 1rem;
+      color: #333;
+      line-height: 1.8;
+      margin-top: 1.5rem;
+      padding-top: 1.5rem;
+      border-top: 1px solid #e5e5e5;
+      font-weight: 500;
+    }
+
+    /* Calendar placeholder */
+    .booking-calendar {
+      background: var(--light);
+      border: 2px dashed var(--border);
+      border-radius: 8px;
+      padding: 4rem 2rem;
+      margin-bottom: 3rem;
+      position: relative;
+      text-align: center;
+    }
+
+    .booking-calendar-icon {
+      font-size: 3rem;
+      margin-bottom: 1rem;
+    }
+
+    .booking-calendar h3 {
+      font-family: 'Oswald', sans-serif;
+      font-size: 1.5rem;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 2px;
+      color: var(--black);
+      margin-bottom: 0.75rem;
+    }
+
+    /* Booking calendar embed */
+    .booking-calendar-embed {
+      margin-bottom: 3rem;
+    }
+
+    .booking-calendar-embed iframe {
+      width: 100%;
+      height: 700px;
+      border: none;
+      border-radius: 8px;
+      background: var(--light);
+    }
+
+    .booking-calendar-fallback {
+      margin-top: 1rem;
+      text-align: center;
+    }
+
+    .booking-calendar-fallback p {
+      font-size: 0.85rem;
+      color: #888;
+      margin-top: 0.75rem;
+    }
+
+    .booking-calendar-fallback p a {
+      color: var(--red);
+      text-decoration: none;
+      font-weight: 600;
+    }
+
+    .booking-calendar-fallback p a:hover {
+      text-decoration: underline;
+    }
+
+    .booking-alt {
+      background: var(--dark);
+      border-radius: 8px;
+      padding: 2.5rem;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 2rem;
+      text-align: left;
+    }
+
+    .booking-alt-card {
+      display: flex;
+      align-items: flex-start;
+      gap: 1rem;
+    }
+
+    .booking-alt-icon {
+      font-size: 1.5rem;
+      flex-shrink: 0;
+      margin-top: 0.2rem;
+    }
+
+    .booking-alt-card h4 {
+      font-family: 'Oswald', sans-serif;
+      font-size: 1rem;
+      font-weight: 600;
+      color: var(--white);
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      margin-bottom: 0.25rem;
+    }
+
+    .booking-alt-card p {
+      font-size: 0.9rem;
+      color: #aaa;
+      line-height: 1.5;
+    }
+
+    .booking-alt-card a {
+      color: var(--red);
+      text-decoration: none;
+      font-weight: 600;
+    }
+
+    .booking-alt-card a:hover {
+      text-decoration: underline;
+    }
+
+    @media (max-width: 900px) {
+      .booking-section {
+        padding: 3rem 1.5rem 4rem;
+      }
+
+      .eval-grid {
+        grid-template-columns: 1fr;
+        gap: 2rem;
+      }
+
+      .booking-alt {
+        grid-template-columns: 1fr;
+      }
+    }
+  </style>
+  <script src="preview-banner.js" defer></script>
+</head>
+<body>
+
+  <!-- NAVIGATION -->
+  <nav>
+    <a href="index.html" class="nav-logo"><img src="images/minilogo-gradient.png" alt="" class="nav-logo-icon" />Top <span>Flight</span> Performance</a>
+    <ul class="nav-links" id="navLinks">
+      <li><a href="index.html">Home</a></li>
+      <li><a href="services.html">Services</a></li>
+      <li class="nav-dropdown" onclick="this.classList.toggle('open')">
+        <a href="#">About</a>
+        <ul class="dropdown-menu">
+          <li><a href="about.html">Coaches</a></li>
+          <li><a href="testimonials.html">Testimonials</a></li>
+          <li><a href="blog.html">Blog</a></li>
+          <li><a href="contact.html">Contact Us</a></li>
+        </ul>
+      </li>
+      <li><a href="booking.html" class="btn-nav">Book Now</a></li>
+    </ul>
+    <div class="hamburger" onclick="toggleNav()">
+      <span></span><span></span><span></span>
+    </div>
+  </nav>
+
+  <!-- PAGE HERO -->
+  <div class="page-hero">
+    <p class="section-label">Get Started</p>
+    <h1>Book Your Evaluation</h1>
+  </div>
+
+  <!-- BOOKING -->
+  <section class="booking-section">
+    <div class="booking-inner">
+      <p class="booking-intro">
+        The Hitting Evaluation is the first step in building a long-term development plan for every athlete. This isn't a one-time lesson — it's a comprehensive breakdown of how you move, swing, and produce results at the plate.
+      </p>
+
+      <!-- Evaluation Breakdown -->
+      <div class="eval-grid">
+        <div class="eval-details">
+          <h3>What We Assess</h3>
+          <p>
+            During the evaluation, we take athletes through a series of drills and live swings to assess key areas of their game. We also evaluate how the body works within the swing, identifying any limitations in mobility, strength, or sequencing that may be holding the athlete back.
+          </p>
+          <p>
+            Using video analysis and real-time coaching, we provide immediate feedback so athletes and parents can clearly understand what's happening and why.
+          </p>
+          <ul class="eval-areas">
+            <li>Swing mechanics</li>
+            <li>Bat speed and power output</li>
+            <li>Timing and pitch approach</li>
+            <li>Overall movement efficiency</li>
+            <li>Mobility, strength, and sequencing</li>
+          </ul>
+        </div>
+        <div class="eval-after">
+          <h3>After the Session</h3>
+          <p>
+            After the evaluation, we sit down with the athlete and parents to discuss results and lay out a clear path forward.
+          </p>
+          <ul class="eval-after-list">
+            <li>Strengths and current skill level</li>
+            <li>Key opportunities for improvement</li>
+            <li>Individual goals and expectations</li>
+            <li>Recommended training plan — hitting, strength, or a combination</li>
+          </ul>
+          <p class="eval-bottom-line">
+            Our goal is to give every athlete a clear roadmap for development, whether they're just getting started or looking to compete at a high level.
+          </p>
+        </div>
+      </div>
+
+      <!-- Booking Calendar -->
+      <div class="booking-calendar-embed">
+        <iframe src="https://topflightperformance1.pushpress.com/open/calendar?framed=1" title="Book Your Evaluation — Top Flight Performance" allowfullscreen></iframe>
+        <div class="booking-calendar-fallback">
+          <a href="https://topflightperformance1.pushpress.com/landing/calendar" target="_blank" rel="noopener noreferrer" class="btn-primary">Book Your Evaluation Online</a>
+          <p>If the calendar isn't loading, <a href="https://topflightperformance1.pushpress.com/landing/calendar" target="_blank" rel="noopener noreferrer">click here to open it in a new window</a>.</p>
+        </div>
+      </div>
+
+      <!-- Alternative Contact -->
+      <div class="booking-alt">
+        <div class="booking-alt-card">
+          <div class="booking-alt-icon">📞</div>
+          <div>
+            <h4>Call or Text</h4>
+            <p><a href="tel:9132957930">913-295-7930</a></p>
+          </div>
+        </div>
+        <div class="booking-alt-card">
+          <div class="booking-alt-icon">📧</div>
+          <div>
+            <h4>Send Us a Message</h4>
+            <p><a href="contact.html">Fill out our contact form</a></p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA BANNER -->
+  <section class="cta-banner">
+    <h2>Not Sure Where to Start?</h2>
+    <p>Reach out and we'll walk you through everything. No pressure, just a conversation about your athlete's goals.</p>
+    <a href="contact.html" class="btn-outline">Contact Us</a>
+  </section>
+
+  <!-- INSTAGRAM CTA -->
+  <div class="instagram-cta">
+    <a href="https://www.instagram.com/top_flight_performance/" target="_blank" rel="noopener noreferrer" class="instagram-btn">Follow Us on Instagram</a>
+  </div>
+
+  <!-- FOOTER -->
+  <footer>
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <a href="index.html" class="footer-logo">Top <span>Flight</span> Performance</a>
+        <p>High Performance Hitting Development. Helping hitters go from good to great through structured, intentional athlete development.</p>
+      </div>
+      <div class="footer-col">
+        <h4>Quick Links</h4>
+        <ul>
+          <li><a href="index.html">Home</a></li>
+          <li><a href="services.html">Services</a></li>
+          <li><a href="about.html">Coaches</a></li>
+          <li><a href="testimonials.html">Testimonials</a></li>
+          <li><a href="blog.html">Blog</a></li>
+          <li><a href="contact.html">Contact Us</a></li>
+          <li><a href="booking.html">Book Now</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Hitting Lessons</h4>
+        <ul>
+          <li><a href="locations/hitting-lessons-overland-park.html">Overland Park</a></li>
+          <li><a href="locations/hitting-lessons-lenexa.html">Lenexa</a></li>
+          <li><a href="locations/hitting-lessons-shawnee.html">Shawnee</a></li>
+          <li><a href="locations/hitting-lessons-leawood.html">Leawood</a></li>
+          <li><a href="locations/hitting-lessons-gardner.html">Gardner</a></li>
+          <li><a href="locations/hitting-lessons-spring-hill.html">Spring Hill</a></li>
+          <li><a href="locations/hitting-lessons-kansas-city.html">Kansas City</a></li>
+          <li><a href="locations/hitting-lessons-prairie-village.html">Prairie Village</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Baseball &amp; Strength</h4>
+        <ul>
+          <li><a href="locations/baseball-training-overland-park.html">Baseball – Overland Park</a></li>
+          <li><a href="locations/baseball-training-lenexa.html">Baseball – Lenexa</a></li>
+          <li><a href="locations/baseball-training-shawnee.html">Baseball – Shawnee</a></li>
+          <li><a href="locations/baseball-training-kansas-city.html">Baseball – Kansas City</a></li>
+          <li><a href="locations/baseball-training-gardner.html">Baseball – Gardner</a></li>
+          <li><a href="locations/strength-training-overland-park.html">Strength – Overland Park</a></li>
+          <li><a href="locations/strength-training-kansas-city.html">Strength – Kansas City</a></li>
+          <li><a href="locations/strength-training-lenexa.html">Strength – Lenexa</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Contact</h4>
+        <div class="footer-contact-item">
+          <span class="icon">📞</span>
+          <span><a href="tel:9132957930" style="color:#aaa;text-decoration:none;">913-295-7930</a></span>
+        </div>
+        <div class="footer-contact-item">
+          <span class="icon">📍</span>
+          <span>2133 E Kansas City Rd.<br />Olathe, KS 66061</span>
+        </div>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>&copy; 2025 Top Flight Performance. All Rights Reserved.</p>
+    </div>
+  </footer>
+
+  <script>
+    function toggleNav() {
+      document.getElementById('navLinks').classList.toggle('open');
+    }
+  </script>
+
+</body>
+</html>

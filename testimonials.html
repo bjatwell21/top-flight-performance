@@ -106,6 +106,7 @@
       }
     }
   </style>
+  <script src="preview-banner.js" defer></script>
 </head>
 <body>
 
@@ -115,9 +116,16 @@
     <ul class="nav-links" id="navLinks">
       <li><a href="index.html">Home</a></li>
       <li><a href="services.html">Services</a></li>
-      <li><a href="about.html">Coaches</a></li>
-      <li><a href="testimonials.html">Testimonials</a></li>
-      <li><a href="contact.html" class="btn-nav">Contact Us</a></li>
+      <li class="nav-dropdown" onclick="this.classList.toggle('open')">
+        <a href="#">About</a>
+        <ul class="dropdown-menu">
+          <li><a href="about.html">Coaches</a></li>
+          <li><a href="testimonials.html">Testimonials</a></li>
+          <li><a href="blog.html">Blog</a></li>
+          <li><a href="contact.html">Contact Us</a></li>
+        </ul>
+      </li>
+      <li><a href="booking.html" class="btn-nav">Book Now</a></li>
     </ul>
     <div class="hamburger" onclick="toggleNav()">
       <span></span><span></span><span></span>
@@ -191,6 +199,27 @@
           <div class="testimonial-role">College Commit</div>
         </div>
 
+        <div class="testimonial-card">
+          <div class="quote-mark">&ldquo;</div>
+          <p>Outstanding team at Top Flight, with matching facilities and support. Highly recommend you check this group out if you are looking for results for your young and older athletes!</p>
+          <div class="testimonial-author">Darren Chaffin</div>
+          <div class="testimonial-role">TFP Parent</div>
+        </div>
+
+        <div class="testimonial-card">
+          <div class="quote-mark">&ldquo;</div>
+          <p>Since starting with Top Flight Performance, I've built strength and speed in the weight room, which has improved my performance on the field. The training and coaching have been incredible for my growth as a player, helping me increase my pitching velocity by 7 mph. I would recommend TFP to any athlete looking to take their game to the next level!</p>
+          <div class="testimonial-author">Brenden Lee</div>
+          <div class="testimonial-role">17 | University of Evansville</div>
+        </div>
+
+        <div class="testimonial-card">
+          <div class="quote-mark">&ldquo;</div>
+          <p>Since starting with Top Flight Performance, I've noticed an increase in my athletic ability and power. The training program and coaching have been positive and motivating and I've noticed a significant increase in my arm strength and exit velo. I would recommend TFP to any athlete looking to take their game to the next level!</p>
+          <div class="testimonial-author">Lily Winright</div>
+          <div class="testimonial-role">17 | Emporia State</div>
+        </div>
+
       </div>
     </div>
   </section>
@@ -199,7 +228,7 @@
   <section class="cta-banner">
     <h2>Ready to Elevate Your Game?</h2>
     <p>Book your evaluation today and take the first step toward becoming an elite athlete.</p>
-    <a href="contact.html" class="btn-outline">Contact Us</a>
+    <a href="booking.html" class="btn-outline">Book Now</a>
   </section>
 
   <!-- INSTAGRAM CTA -->

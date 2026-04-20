@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Services — Hitting, Strength, Speed & Team Training | Top Flight Performance</title>
+  <title>Programs — Hitting, Strength, Combo & Sibling Memberships | Top Flight Performance</title>
   <meta name="description" content="Explore Top Flight Performance's training programs: 2-on-1 hitting lessons, sport-specific strength training, speed & agility development, and team training in Olathe, KS." />
   <meta name="keywords" content="hitting lessons, strength training baseball, speed training, team training, baseball development Olathe KS, batting lessons Kansas City" />
   <meta name="robots" content="index, follow" />
@@ -93,8 +93,6 @@
     .services-hero-panel {
       position: relative;
       overflow: hidden;
-      cursor: pointer;
-      text-decoration: none;
       display: block;
       opacity: 0;
       animation: panelReveal 0.9s ease forwards;
@@ -329,6 +327,46 @@
       flex-shrink: 0;
     }
 
+    .service-addon {
+      margin-top: 1.25rem;
+      padding: 0.75rem 1rem;
+      background: rgba(200, 16, 46, 0.06);
+      border-left: 3px solid var(--red);
+      font-size: 0.88rem;
+      color: #555;
+      font-style: italic;
+    }
+
+    .service-addon strong {
+      color: var(--red);
+      font-style: normal;
+      font-family: 'Oswald', sans-serif;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+      font-size: 0.8rem;
+      font-weight: 600;
+      margin-right: 0.4rem;
+    }
+
+    .membership-note {
+      margin: 3rem auto 0;
+      max-width: 700px;
+      text-align: center;
+      padding: 1.25rem 1.5rem;
+      background: var(--black);
+      color: var(--white);
+      border-top: 3px solid var(--red);
+    }
+
+    .membership-note p {
+      margin: 0;
+      font-family: 'Oswald', sans-serif;
+      font-size: 0.95rem;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      font-weight: 500;
+    }
+
     /* ===== WHO WE TRAIN ===== */
     .who-section {
       background: var(--black);
@@ -484,7 +522,7 @@
     <a href="index.html" class="nav-logo"><img src="images/minilogo-gradient.png" alt="" class="nav-logo-icon" />Top <span>Flight</span> Performance</a>
     <ul class="nav-links" id="navLinks">
       <li><a href="index.html">Home</a></li>
-      <li><a href="services.html">Services</a></li>
+      <li><a href="services.html">Programs</a></li>
       <li class="nav-dropdown" onclick="this.classList.toggle('open')">
         <a href="#">About</a>
         <ul class="dropdown-menu">
@@ -511,60 +549,60 @@
       <h1>Building A<br />Complete Athlete</h1>
       <div class="section-divider center"></div>
     </div>
-    <a href="#hitting" class="services-hero-panel">
+    <div class="services-hero-panel">
       <img src="images/newhero-bw.jpeg" alt="Hitting" class="panel-bw" />
       <img src="images/newhero.jpeg" alt="Hitting" class="panel-color" />
       <span class="panel-label">Hitting</span>
-    </a>
-    <a href="#strength" class="services-hero-panel">
+    </div>
+    <div class="services-hero-panel">
       <img src="images/dumbellbw.jpeg" alt="Strength" class="panel-bw" />
       <img src="images/dumbell.jpeg" alt="Strength" class="panel-color" />
       <span class="panel-label">Strength</span>
-    </a>
-    <a href="#speed" class="services-hero-panel">
+    </div>
+    <div class="services-hero-panel">
       <img src="images/medballbw.jpeg" alt="Speed" class="panel-bw" />
       <img src="images/medball.jpeg" alt="Speed" class="panel-color" />
       <span class="panel-label">Speed</span>
-    </a>
-    <a href="#team" class="services-hero-panel">
-      <img src="images/teambw.jpeg" alt="Team" class="panel-bw" />
-      <img src="images/team.jpeg" alt="Team" class="panel-color" />
-      <span class="panel-label">Team</span>
-    </a>
+    </div>
+    <div class="services-hero-panel">
+      <img src="images/teambw.jpeg" alt="Nutrition" class="panel-bw" />
+      <img src="images/team.jpeg" alt="Nutrition" class="panel-color" />
+      <span class="panel-label">Nutrition</span>
+    </div>
   </div>
 
   <!-- SERVICES -->
   <section class="services-section">
     <div class="services-inner">
 
-      <!-- Hitting Lessons -->
+      <!-- Hitting Membership -->
       <div class="service-block" id="hitting">
         <div class="service-visual">
           <img src="images/newhero.jpeg" alt="TFP athlete hitting in the cage" class="service-photo" />
         </div>
         <div class="service-content">
           <div class="service-number">01</div>
-          <p class="section-label">Flagship Program</p>
-          <h2>Hitting Lessons</h2>
+          <p class="section-label">Flagship Membership</p>
+          <h2>TFP Hitting Membership</h2>
           <div class="section-divider"></div>
           <p>
-            Our hitting instruction is built entirely around the individual athlete. No cookie-cutter approaches, no generic drills — just focused, intentional work on your mechanics, your approach, and your results.
-          </p>
-          <p>
-            Every session runs in our 2-on-1 format — two athletes, one coach, maximum development. Your athlete gets real, dedicated attention every single rep. Not lost in a group. Not waiting for their turn.
+            Our foundational hitting program — built around structured 2-on-1 coaching, weekly sessions, and the remote programming and cage access that keep athletes developing between sessions.
           </p>
           <div class="service-details">
-            <div class="service-detail-item">2-on-1 coaching format</div>
-            <div class="service-detail-item">Individualized mechanics work</div>
-            <div class="service-detail-item">Video analysis available</div>
-            <div class="service-detail-item">TrainHeroic app programming between sessions</div>
-            <div class="service-detail-item">Ages 12 to pro level</div>
+            <div class="service-detail-item">2-on-1 group hitting sessions</div>
+            <div class="service-detail-item">1 hitting session per week (60 min)</div>
+            <div class="service-detail-item">Video analysis &amp; swing breakdown</div>
+            <div class="service-detail-item">Personalized coaching feedback</div>
+            <div class="service-detail-item">Performance tracking &amp; accountability</div>
+            <div class="service-detail-item">Remote strength programming</div>
+            <div class="service-detail-item">Cage access during open hours</div>
           </div>
-          <a href="booking.html" class="btn-primary" style="margin-top:2rem;">Book a Session</a>
+          <p class="service-addon"><strong>Optional add-on:</strong> Nutrition tracking + meal plan</p>
+          <a href="booking.html" class="btn-primary" style="margin-top:1.5rem;">Book a Session</a>
         </div>
       </div>
 
-      <!-- Strength Training -->
+      <!-- Strength Only Membership -->
       <div class="service-block reverse" id="strength">
         <div class="service-visual">
           <img src="images/dumbell.jpeg" alt="TFP athlete training with dumbbells" class="service-photo" />
@@ -572,74 +610,75 @@
         <div class="service-content">
           <div class="service-number">02</div>
           <p class="section-label">Athletic Development</p>
-          <h2>Strength Training</h2>
+          <h2>TFP Strength Only Membership</h2>
           <div class="section-divider"></div>
           <p>
-            Skill and athleticism are not separate — and at TFP, we don't treat them that way. Our strength programming is specifically designed for baseball athletes, focused on building the power, durability, and explosiveness that translates directly to performance on the field.
-          </p>
-          <p>
-            Every strength program is delivered through the TrainHeroic app so athletes can follow structured programming on their own time, staying consistent between sessions.
+            For athletes focused purely on building strength, power, and durability. Sport-specific programming, in-person sessions with coaches, and full remote programming between them.
           </p>
           <div class="service-details">
-            <div class="service-detail-item">Sport-specific strength programming</div>
-            <div class="service-detail-item">Power and explosiveness development</div>
-            <div class="service-detail-item">Delivered via TrainHeroic app</div>
-            <div class="service-detail-item">Designed around your hitting development</div>
+            <div class="service-detail-item">2–3x per week in-person strength training</div>
+            <div class="service-detail-item">Open weight room access</div>
+            <div class="service-detail-item">3–4 remote programmed workouts per week</div>
           </div>
-          <a href="contact.html" class="btn-primary" style="margin-top:2rem;">Get Started</a>
+          <p class="service-addon"><strong>Optional add-on:</strong> Nutrition tracking + meal plan</p>
+          <a href="contact.html" class="btn-primary" style="margin-top:1.5rem;">Get Started</a>
         </div>
       </div>
 
-      <!-- Speed Training -->
-      <div class="service-block" id="speed">
+      <!-- Hitting + Strength Combo -->
+      <div class="service-block" id="combo">
         <div class="service-visual">
-          <img src="images/medball.jpeg" alt="TFP athlete med ball training" class="service-photo" />
+          <img src="images/medball.jpeg" alt="TFP athlete strength training" class="service-photo" />
         </div>
         <div class="service-content">
           <div class="service-number">03</div>
-          <p class="section-label">Athletic Development</p>
-          <h2>Speed Training</h2>
+          <p class="section-label">Complete Athlete</p>
+          <h2>TFP Hitting + Strength Combo</h2>
           <div class="section-divider"></div>
           <p>
-            Speed is a skill — and like any skill, it can be trained. Our speed development program targets acceleration, first-step quickness, and overall athleticism to help athletes move faster and more efficiently in every direction.
-          </p>
-          <p>
-            We understand that the strongest, most explosive athletes are the ones who last longer and perform at a higher level. Speed work is a core part of developing the complete athlete.
+            The full TFP system — hitting development paired with sport-specific strength work. The same structure that produces our highest-performing athletes, built to develop every part of the complete player.
           </p>
           <div class="service-details">
-            <div class="service-detail-item">Acceleration and first-step training</div>
-            <div class="service-detail-item">Agility and change of direction</div>
-            <div class="service-detail-item">Integrated with strength programming</div>
-            <div class="service-detail-item">Full-body athletic development</div>
+            <div class="service-detail-item">2-on-1 group hitting sessions</div>
+            <div class="service-detail-item">1 hitting session per week (60 min)</div>
+            <div class="service-detail-item">Video analysis &amp; swing breakdown</div>
+            <div class="service-detail-item">Personalized coaching feedback</div>
+            <div class="service-detail-item">Performance tracking &amp; accountability</div>
+            <div class="service-detail-item">2–3 in-person strength sessions per week</div>
+            <div class="service-detail-item">Open weight room access</div>
+            <div class="service-detail-item">Full remote programming</div>
           </div>
-          <a href="booking.html" class="btn-primary" style="margin-top:2rem;">Book a Session</a>
+          <p class="service-addon"><strong>Optional add-on:</strong> Nutrition tracking + meal plan</p>
+          <a href="booking.html" class="btn-primary" style="margin-top:1.5rem;">Book a Session</a>
         </div>
       </div>
 
-      <!-- Team Training -->
-      <div class="service-block reverse" id="team">
+      <!-- Sibling Training -->
+      <div class="service-block reverse" id="sibling">
         <div class="service-visual">
-          <img src="images/team.jpeg" alt="TFP team training session" class="service-photo" style="object-position: center 45%;" />
+          <img src="images/team.jpeg" alt="TFP siblings training together" class="service-photo" style="object-position: center 45%;" />
         </div>
         <div class="service-content">
           <div class="service-number">04</div>
-          <p class="section-label">Group Programs</p>
-          <h2>Team Training</h2>
+          <p class="section-label">Family Option</p>
+          <h2>Sibling Training</h2>
           <div class="section-divider"></div>
           <p>
-            Top Flight works with teams and groups looking to develop together. We bring the same structured, intentional approach to group settings — delivering organized, purposeful workouts that maximize development for every athlete on the roster.
-          </p>
-          <p>
-            Whether it's a travel ball team, a high school program, or a group of players training together in the offseason, we build programs that get results.
+            Families with multiple athletes may share the same 2-on-1 training slot, maintaining full coaching quality while training together. Same great development — built for the whole family.
           </p>
           <div class="service-details">
-            <div class="service-detail-item">Travel ball and high school teams</div>
-            <div class="service-detail-item">Offseason group training</div>
-            <div class="service-detail-item">Hitting, strength, and speed combined</div>
-            <div class="service-detail-item">Custom programs for your roster</div>
+            <div class="service-detail-item">4 weeks, both athletes included</div>
+            <div class="service-detail-item">Shared 2-on-1 coaching slot</div>
+            <div class="service-detail-item">Full coaching quality maintained</div>
+            <div class="service-detail-item">Train together, develop together</div>
           </div>
-          <a href="contact.html" class="btn-primary" style="margin-top:2rem;">Inquire About Team Training</a>
+          <a href="contact.html" class="btn-primary" style="margin-top:1.5rem;">Ask About Sibling Training</a>
         </div>
+      </div>
+
+      <!-- Membership commitment note -->
+      <div class="membership-note">
+        <p>All memberships require a minimum 3-month commitment.</p>
       </div>
 
     </div>
@@ -653,10 +692,16 @@
         <h2>Built for <span>Serious Athletes</span></h2>
         <div class="section-divider"></div>
         <p>
-          Top Flight Performance works with athletes from age 12 all the way through the professional level. If you're serious about developing your game, there's a place for you here.
+          Top Flight Performance is Olathe's premier baseball and softball development facility for serious athletes ages 12 through professional.
         </p>
         <p>
-          Our programs are designed to meet athletes where they are and push them to where they want to go — with a structured system that builds on itself over time.
+          We don't do random lessons. Every athlete trains in our 2-on-1 coaching format and follows a structured program combining hitting instruction, strength training, and speed development — because we build complete athletes, not just better swings.
+        </p>
+        <p>
+          Certified coaches. Long-term development. A system built to get you to the next level.
+        </p>
+        <p style="font-weight: 600; color: var(--black); margin-top: 1.25rem;">
+          Come see what structured development looks like. Book your assessment today.
         </p>
       </div>
       <div class="age-grid">
@@ -703,7 +748,7 @@
         <h4>Quick Links</h4>
         <ul>
           <li><a href="index.html">Home</a></li>
-          <li><a href="services.html">Services</a></li>
+          <li><a href="services.html">Programs</a></li>
           <li><a href="about.html">About</a></li>
           <li><a href="contact.html">Book Now</a></li>
         </ul>

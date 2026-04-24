@@ -1,0 +1,15 @@
+.git/
+.github/
+.claude/
+.DS_Store
+**/.DS_Store
+*.mov
+*.pdf
+*.py
+*.md
+*.docx
+node_modules/
+.env
+.env.*
+wrangler.jsonc
+wrangler.toml

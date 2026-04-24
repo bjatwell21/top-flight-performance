@@ -356,13 +356,15 @@ nav::after {
   margin-bottom: 0.5rem;
 }
 
-.page-hero h1 {
+.page-hero h1,
+.page-hero .page-hero-small {
   font-family: 'Oswald', sans-serif;
   font-size: 3.5rem;
   font-weight: 700;
   color: var(--white);
   text-transform: uppercase;
   letter-spacing: 2px;
+  margin: 0;
 }
 
 /* ===================== FOOTER ===================== */

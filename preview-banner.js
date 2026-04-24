@@ -7,7 +7,9 @@
     'topflightperformance.com',
     'www.topflightperformance.com',
     'topflightperformance1.com',
-    'www.topflightperformance1.com'
+    'www.topflightperformance1.com',
+    'topflightperformancekc1.com',
+    'www.topflightperformancekc1.com'
   ];
   if (productionHosts.indexOf(host) !== -1) return;
 

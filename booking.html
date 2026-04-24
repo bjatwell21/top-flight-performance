@@ -35,109 +35,196 @@
       text-align: center;
     }
 
-    /* Evaluation breakdown */
-    .eval-grid {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 3rem;
-      margin-bottom: 3.5rem;
-      align-items: start;
+    /* Dark header section (sits under the nav) */
+    .eval-dark-section {
+      background: var(--black);
+      padding: calc(72px + 4rem) 4rem 4rem;
+      position: relative;
+      overflow: hidden;
+      border-bottom: 4px solid var(--red);
     }
 
-    .eval-details h3 {
+    .eval-dark-section::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-image:
+        radial-gradient(circle at 15% 20%, rgba(200, 16, 46, 0.08), transparent 55%),
+        radial-gradient(circle at 85% 80%, rgba(200, 16, 46, 0.05), transparent 50%);
+      pointer-events: none;
+    }
+
+    .eval-dark-inner {
+      max-width: 1000px;
+      margin: 0 auto;
+      position: relative;
+      z-index: 1;
+    }
+
+    /* White section with tabs, sits right under the dark header */
+    .eval-light-section {
+      background: var(--white);
+      padding: 4rem 4rem 5rem;
+    }
+
+    .eval-light-inner {
+      max-width: 1000px;
+      margin: 0 auto;
+    }
+
+    .eval-section-title {
       font-family: 'Oswald', sans-serif;
-      font-size: 1.6rem;
+      font-size: 2.4rem;
       font-weight: 700;
       text-transform: uppercase;
-      letter-spacing: 1px;
+      letter-spacing: 2px;
+      color: var(--white);
+      text-align: center;
+      margin: 0.5rem 0 0;
+      line-height: 1.1;
+    }
+
+    .eval-section-title-light {
       color: var(--black);
-      margin-bottom: 1rem;
     }
 
-    .eval-details p {
-      font-size: 0.95rem;
-      color: #555;
-      line-height: 1.8;
-      margin-bottom: 1rem;
+    .eval-intro-text {
+      font-size: 1rem;
+      color: #bbb;
+      line-height: 1.7;
+      text-align: center;
+      max-width: 620px;
+      margin: 1.5rem auto 2.5rem;
     }
 
-    .eval-areas {
-      list-style: none;
-      padding: 0;
-      margin: 0;
+    /* Tabs */
+    .eval-tabs-wrapper {
+      margin: 0 auto;
+    }
+
+    .eval-tabs {
       display: flex;
-      flex-direction: column;
-      gap: 0.5rem;
+      justify-content: center;
+      flex-wrap: wrap;
+      gap: 0.25rem;
+      margin-bottom: 1.25rem;
+      border-bottom: 1px solid #e5e5e5;
     }
 
-    .eval-areas li {
+    .eval-tab {
+      font-family: 'Oswald', sans-serif;
+      font-size: 0.9rem;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 2px;
+      color: #888;
+      background: transparent;
+      border: none;
+      border-bottom: 3px solid transparent;
+      padding: 0.85rem 1.5rem;
+      cursor: pointer;
+      margin-bottom: -1px;
+      transition: color 0.2s, background 0.2s, border-color 0.2s;
+      border-radius: 4px 4px 0 0;
+    }
+
+    .eval-tab:hover {
+      color: var(--black);
+      background: rgba(0, 0, 0, 0.03);
+    }
+
+    .eval-tab.active {
+      color: var(--black);
+      background: rgba(200, 16, 46, 0.05);
+      border-bottom-color: var(--red);
+    }
+
+    .eval-tab-panel {
+      background: var(--light);
+      border-top: 3px solid var(--red);
+      border-radius: 6px;
+      padding: 2.5rem;
+      animation: evalFadeIn 0.4s ease;
+    }
+
+    .eval-tab-panel[hidden] {
+      display: none;
+    }
+
+    @keyframes evalFadeIn {
+      from { opacity: 0; transform: translateY(6px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    .eval-lead {
+      font-size: 1rem;
+      color: #444;
+      line-height: 1.75;
+      margin-bottom: 1.75rem;
+    }
+
+    .eval-components {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1.25rem;
+      margin-bottom: 1.75rem;
+    }
+
+    .eval-component {
+      position: relative;
+      background: var(--white);
+      padding: 1.5rem;
+      border-radius: 4px;
+      border-top: 3px solid var(--red);
+      box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+    }
+
+    .eval-component-num {
+      position: absolute;
+      top: -14px;
+      right: 14px;
+      width: 30px;
+      height: 30px;
+      background: var(--red);
+      color: var(--white);
+      border-radius: 50%;
       display: flex;
       align-items: center;
-      gap: 0.75rem;
-      font-size: 0.9rem;
-      color: #444;
-    }
-
-    .eval-areas li::before {
-      content: '';
-      width: 8px;
-      height: 8px;
-      background: var(--red);
-      flex-shrink: 0;
-    }
-
-    .eval-after h3 {
+      justify-content: center;
       font-family: 'Oswald', sans-serif;
-      font-size: 1.6rem;
+      font-weight: 700;
+      font-size: 0.85rem;
+      box-shadow: 0 3px 10px rgba(200, 16, 46, 0.4);
+    }
+
+    .eval-component h4 {
+      font-family: 'Oswald', sans-serif;
+      font-size: 1rem;
       font-weight: 700;
       text-transform: uppercase;
-      letter-spacing: 1px;
+      letter-spacing: 1.5px;
       color: var(--black);
-      margin-bottom: 1rem;
+      margin-bottom: 0.6rem;
     }
 
-    .eval-after p {
-      font-size: 0.95rem;
+    .eval-component p {
+      font-size: 0.88rem;
       color: #555;
-      line-height: 1.8;
-      margin-bottom: 1.25rem;
-    }
-
-    .eval-after-list {
-      list-style: none;
-      padding: 0;
+      line-height: 1.65;
       margin: 0;
-      display: flex;
-      flex-direction: column;
-      gap: 0.6rem;
     }
 
-    .eval-after-list li {
-      display: flex;
-      align-items: flex-start;
-      gap: 0.75rem;
-      font-size: 0.9rem;
-      color: #444;
-      line-height: 1.5;
-    }
-
-    .eval-after-list li::before {
-      content: '';
-      width: 8px;
-      height: 8px;
-      background: var(--red);
-      flex-shrink: 0;
-      margin-top: 0.35rem;
-    }
-
-    .eval-bottom-line {
-      font-size: 1rem;
+    .eval-conclusion {
+      font-size: 0.95rem;
       color: #333;
-      line-height: 1.8;
-      margin-top: 1.5rem;
-      padding-top: 1.5rem;
-      border-top: 1px solid #e5e5e5;
-      font-weight: 500;
+      line-height: 1.75;
+      font-style: italic;
+      padding-top: 1.25rem;
+      border-top: 1px solid #d8d8d8;
+      margin: 0;
     }
 
     /* Calendar placeholder */
@@ -253,9 +340,32 @@
         padding: 3rem 1.5rem 4rem;
       }
 
-      .eval-grid {
+      .eval-dark-section {
+        padding: calc(72px + 2.5rem) 1.5rem 3rem;
+      }
+
+      .eval-light-section {
+        padding: 2.5rem 1.5rem 3.5rem;
+      }
+
+      .eval-components {
         grid-template-columns: 1fr;
-        gap: 2rem;
+        gap: 0.75rem;
+      }
+
+      .eval-tab-panel {
+        padding: 1.75rem 1.25rem;
+      }
+
+      .eval-tab {
+        padding: 0.85rem 1rem;
+        font-size: 0.8rem;
+        letter-spacing: 1.5px;
+        flex: 1;
+      }
+
+      .eval-section-title {
+        font-size: 1.6rem;
       }
 
       .booking-alt {
@@ -289,60 +399,104 @@
     </div>
   </nav>
 
-  <!-- PAGE HERO -->
-  <div class="page-hero">
-    <p class="section-label">Get Started</p>
-    <h1>Book Your Evaluation</h1>
-  </div>
-
-  <!-- BOOKING -->
-  <section class="booking-section">
-    <div class="booking-inner">
-      <p class="booking-intro">
-        The Hitting Evaluation is the first step in building a long-term development plan for every athlete. This isn't a one-time lesson — it's a comprehensive breakdown of how you move, swing, and produce results at the plate.
+  <!-- EVALUATION HEADER (dark section under the nav) -->
+  <section class="eval-dark-section">
+    <div class="eval-dark-inner">
+      <p class="section-label" style="color: var(--red); text-align: center;">Before You Book</p>
+      <h2 class="eval-section-title">What to Expect at Your Evaluation</h2>
+      <div class="section-divider center"></div>
+      <p class="eval-intro-text">
+        Two evaluation types depending on your focus — tap a tab to see what each one includes.
       </p>
+    </div>
+  </section>
 
-      <!-- Evaluation Breakdown -->
-      <div class="eval-grid">
-        <div class="eval-details">
-          <h3>What We Assess</h3>
-          <p>
-            During the evaluation, we take athletes through a series of drills and live swings to assess key areas of their game. We also evaluate how the body works within the swing, identifying any limitations in mobility, strength, or sequencing that may be holding the athlete back.
-          </p>
-          <p>
-            Using video analysis and real-time coaching, we provide immediate feedback so athletes and parents can clearly understand what's happening and why.
-          </p>
-          <ul class="eval-areas">
-            <li>Swing mechanics</li>
-            <li>Bat speed and power output</li>
-            <li>Timing and pitch approach</li>
-            <li>Overall movement efficiency</li>
-            <li>Mobility, strength, and sequencing</li>
-          </ul>
+  <!-- EVALUATION TABS (white section below dark header) -->
+  <section class="eval-light-section">
+    <div class="eval-light-inner">
+      <div class="eval-tabs-wrapper">
+        <div class="eval-tabs" role="tablist">
+          <button class="eval-tab active" data-tab="hitting" role="tab" aria-selected="true" aria-controls="tab-hitting">Hitting Evaluation</button>
+          <button class="eval-tab" data-tab="performance" role="tab" aria-selected="false" aria-controls="tab-performance">Performance Assessment</button>
         </div>
-        <div class="eval-after">
-          <h3>After the Session</h3>
-          <p>
-            After the evaluation, we sit down with the athlete and parents to discuss results and lay out a clear path forward.
+
+        <!-- Hitting Evaluation Panel -->
+        <div class="eval-tab-panel active" id="tab-hitting" role="tabpanel">
+          <p class="eval-lead">Our hitting evaluation is designed to give athletes a clear, data-driven understanding of their swing and how to improve it.</p>
+
+          <div class="eval-components">
+            <div class="eval-component">
+              <span class="eval-component-num">1</span>
+              <h4>Swing Analysis</h4>
+              <p>We break down the athlete's swing to identify strengths, inefficiencies, and key areas for development.</p>
+            </div>
+            <div class="eval-component">
+              <span class="eval-component-num">2</span>
+              <h4>Video Breakdown</h4>
+              <p>Using detailed video analysis, we provide visual feedback so athletes can see exactly what's happening in their swing and better understand the adjustments needed.</p>
+            </div>
+            <div class="eval-component">
+              <span class="eval-component-num">3</span>
+              <h4>Metrics</h4>
+              <p>We track important performance data such as exit velocity, launch angle, and ball flight to give objective insight into performance and progress.</p>
+            </div>
+          </div>
+
+          <p class="eval-conclusion">
+            After the evaluation, we walk through everything step-by-step and build a plan to help the athlete develop a more efficient, powerful, and consistent swing.
           </p>
-          <ul class="eval-after-list">
-            <li>Strengths and current skill level</li>
-            <li>Key opportunities for improvement</li>
-            <li>Individual goals and expectations</li>
-            <li>Recommended training plan — hitting, strength, or a combination</li>
-          </ul>
-          <p class="eval-bottom-line">
-            Our goal is to give every athlete a clear roadmap for development, whether they're just getting started or looking to compete at a high level.
+        </div>
+
+        <!-- Performance Assessment Panel -->
+        <div class="eval-tab-panel" id="tab-performance" role="tabpanel" hidden>
+          <p class="eval-lead">Our comprehensive assessment is designed to identify exactly where an athlete stands and how we can help them improve.</p>
+
+          <div class="eval-components">
+            <div class="eval-component">
+              <span class="eval-component-num">1</span>
+              <h4>Movement Assessment</h4>
+              <p>We evaluate overall movement quality to identify limitations, imbalances, and areas for improvement. This helps us build a safe and effective training plan tailored to the athlete.</p>
+            </div>
+            <div class="eval-component">
+              <span class="eval-component-num">2</span>
+              <h4>10-Yard Sprint</h4>
+              <p>This test measures acceleration and explosive power — key components for performance on the field.</p>
+            </div>
+            <div class="eval-component">
+              <span class="eval-component-num">3</span>
+              <h4>Force Plate Assessment</h4>
+              <p>Using advanced technology, we analyze power output, vertical jump height, and Reactive Strength Index (RSI) to get a detailed look at an athlete's explosiveness and efficiency.</p>
+            </div>
+          </div>
+
+          <p class="eval-conclusion">
+            From there, we break everything down and create a personalized plan to help each athlete move better, get faster, and become more powerful.
           </p>
         </div>
       </div>
+    </div>
+  </section>
+
+  <!-- BOOK SECTION -->
+  <section class="booking-section booking-section-book">
+    <div class="booking-inner">
+      <p class="section-label" style="color: var(--red); text-align: center;">Pick a Time</p>
+      <h2 class="eval-section-title eval-section-title-light">Book Your Evaluation</h2>
+      <div class="section-divider center"></div>
 
       <!-- Booking Calendar -->
-      <div class="booking-calendar-embed">
-        <iframe src="https://topflightperformance1.pushpress.com/open/calendar?framed=1" title="Book Your Evaluation — Top Flight Performance" allowfullscreen></iframe>
+      <div class="booking-calendar-embed" id="booking-hitting">
+        <iframe src="https://cal.com/trevor-tfp/hittingeval?embed=true" title="Book Your Hitting Evaluation — Top Flight Performance" allowfullscreen></iframe>
         <div class="booking-calendar-fallback">
-          <a href="https://topflightperformance1.pushpress.com/landing/calendar" target="_blank" rel="noopener noreferrer" class="btn-primary">Book Your Evaluation Online</a>
-          <p>If the calendar isn't loading, <a href="https://topflightperformance1.pushpress.com/landing/calendar" target="_blank" rel="noopener noreferrer">click here to open it in a new window</a>.</p>
+          <a href="https://cal.com/trevor-tfp/hittingeval" target="_blank" rel="noopener noreferrer" class="btn-primary">Book Your Hitting Evaluation</a>
+          <p>If the calendar isn't loading, <a href="https://cal.com/trevor-tfp/hittingeval" target="_blank" rel="noopener noreferrer">click here to open it in a new window</a>.</p>
+        </div>
+      </div>
+      <div class="booking-calendar-embed" id="booking-performance" hidden>
+        <iframe src="https://cal.com/trevor-tfp/performanceassessment?embed=true" title="Book Your Performance Assessment — Top Flight Performance" allowfullscreen></iframe>
+        <div class="booking-calendar-fallback">
+          <a href="https://cal.com/trevor-tfp/performanceassessment" target="_blank" rel="noopener noreferrer" class="btn-primary">Book Your Performance Assessment</a>
+          <p>If the calendar isn't loading, <a href="https://cal.com/trevor-tfp/performanceassessment" target="_blank" rel="noopener noreferrer">click here to open it in a new window</a>.</p>
         </div>
       </div>
 
@@ -444,6 +598,49 @@
     function toggleNav() {
       document.getElementById('navLinks').classList.toggle('open');
     }
+
+    // Evaluation tabs
+    (function() {
+      var tabs = document.querySelectorAll('.eval-tab');
+      var panels = document.querySelectorAll('.eval-tab-panel');
+      var calendars = {
+        hitting: document.getElementById('booking-hitting'),
+        performance: document.getElementById('booking-performance')
+      };
+      if (!tabs.length) return;
+
+      tabs.forEach(function(tab) {
+        tab.addEventListener('click', function() {
+          var target = tab.getAttribute('data-tab');
+
+          tabs.forEach(function(t) {
+            var isActive = t === tab;
+            t.classList.toggle('active', isActive);
+            t.setAttribute('aria-selected', isActive ? 'true' : 'false');
+          });
+
+          panels.forEach(function(p) {
+            var show = p.id === 'tab-' + target;
+            p.classList.toggle('active', show);
+            if (show) {
+              p.removeAttribute('hidden');
+            } else {
+              p.setAttribute('hidden', '');
+            }
+          });
+
+          Object.keys(calendars).forEach(function(key) {
+            var el = calendars[key];
+            if (!el) return;
+            if (key === target) {
+              el.removeAttribute('hidden');
+            } else {
+              el.setAttribute('hidden', '');
+            }
+          });
+        });
+      });
+    })();
   </script>
 
 </body>

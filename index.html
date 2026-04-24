@@ -536,6 +536,84 @@
       margin: 0;
     }
 
+    /* ===== WHO WE TRAIN (slim strip between Why TFP and Testimonials) ===== */
+    .who-train-slim {
+      background: var(--black);
+      padding: 3.5rem 4rem;
+      border-top: 3px solid var(--red);
+    }
+
+    .who-train-slim-inner {
+      max-width: 1200px;
+      margin: 0 auto;
+      text-align: center;
+    }
+
+    .who-train-slim-title {
+      font-family: 'Oswald', sans-serif;
+      font-size: 2rem;
+      font-weight: 700;
+      color: var(--white);
+      text-transform: uppercase;
+      letter-spacing: 2px;
+      margin: 0.25rem 0 1.75rem;
+    }
+
+    .who-train-slim-title span {
+      color: var(--red);
+    }
+
+    .who-train-cards {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 1rem;
+      max-width: 900px;
+      margin: 0 auto;
+    }
+
+    .who-train-card {
+      background: var(--dark2);
+      border-left: 3px solid var(--red);
+      padding: 1rem 1.25rem;
+      text-align: left;
+      transition: transform 0.2s, background 0.2s;
+    }
+
+    .who-train-card:hover {
+      background: #262626;
+      transform: translateY(-2px);
+    }
+
+    .who-train-card h4 {
+      font-family: 'Oswald', sans-serif;
+      font-size: 0.95rem;
+      font-weight: 700;
+      color: var(--white);
+      text-transform: uppercase;
+      letter-spacing: 1.5px;
+      margin-bottom: 0.25rem;
+    }
+
+    .who-train-card p {
+      font-size: 0.8rem;
+      color: #888;
+      margin: 0;
+    }
+
+    @media (max-width: 900px) {
+      .who-train-slim {
+        padding: 3rem 1.5rem;
+      }
+
+      .who-train-cards {
+        grid-template-columns: repeat(2, 1fr);
+      }
+
+      .who-train-slim-title {
+        font-size: 1.5rem;
+      }
+    }
+
     /* ===== TESTIMONIALS ===== */
     .rolling-baseball {
       position: absolute;
@@ -1547,6 +1625,32 @@
     </div>
   </section>
 
+  <!-- WHO WE TRAIN (slim) -->
+  <section class="who-train-slim">
+    <div class="who-train-slim-inner fade-in">
+      <p class="section-label" style="color: var(--red);">Who We Train</p>
+      <h2 class="who-train-slim-title">Ages <span>12 to Pro</span></h2>
+      <div class="who-train-cards">
+        <div class="who-train-card">
+          <h4>Middle School</h4>
+          <p>Ages 12–14</p>
+        </div>
+        <div class="who-train-card">
+          <h4>High School</h4>
+          <p>Ages 14–18</p>
+        </div>
+        <div class="who-train-card">
+          <h4>College</h4>
+          <p>Collegiate athletes</p>
+        </div>
+        <div class="who-train-card">
+          <h4>Pro Level</h4>
+          <p>Professional</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
   <!-- TESTIMONIALS -->
   <section class="testimonials-section">
     <div class="rolling-baseball" id="rollingBaseball">
@@ -1573,9 +1677,9 @@
         </div>
         <div class="testimonial-card fade-in">
           <div class="quote-mark">&ldquo;</div>
-          <p>We've tried other facilities. Nothing compares to the structure and attention at Top Flight. The TrainHeroic app keeps my son accountable between sessions. Best investment we've made.</p>
-          <div class="testimonial-author">Parent of TFP Athlete</div>
-          <div class="testimonial-role">Middle School Player</div>
+          <p>I've had the opportunity to train with Zach, and the impact on my hitting has been immediate and noticeable. His ability to break down mechanics, simplify complex little adjustments, and tailor instruction to each athlete sets them apart. Not only does he understand the technical side of hitting, but he also knows how to build confidence and a strong mental approach at the plate. Any player serious about improving their performance would benefit from working with them.</p>
+          <div class="testimonial-author">Garrett Pennington</div>
+          <div class="testimonial-role">1B/OF | Detroit Tigers Organization</div>
         </div>
         <div class="testimonial-card fade-in">
           <div class="quote-mark">&ldquo;</div>

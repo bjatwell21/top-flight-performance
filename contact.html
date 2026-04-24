@@ -487,9 +487,8 @@
         });
         const data = await response.json();
         if (data.success) {
-          btn.textContent = 'Submitted! We\'ll be in touch soon.';
-          btn.style.background = '#1a7a3a';
-          form.reset();
+          window.location.href = 'thank-you.html';
+          return;
         } else {
           btn.textContent = 'Something went wrong — try again or call us.';
           btn.style.background = '#8a1a1a';

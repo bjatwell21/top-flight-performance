@@ -614,37 +614,47 @@
       };
       if (!tabs.length) return;
 
+      function activateTab(target) {
+        tabs.forEach(function(t) {
+          var isActive = t.getAttribute('data-tab') === target;
+          t.classList.toggle('active', isActive);
+          t.setAttribute('aria-selected', isActive ? 'true' : 'false');
+        });
+
+        panels.forEach(function(p) {
+          var show = p.id === 'tab-' + target;
+          p.classList.toggle('active', show);
+          if (show) {
+            p.removeAttribute('hidden');
+          } else {
+            p.setAttribute('hidden', '');
+          }
+        });
+
+        Object.keys(calendars).forEach(function(key) {
+          var el = calendars[key];
+          if (!el) return;
+          if (key === target) {
+            el.removeAttribute('hidden');
+          } else {
+            el.setAttribute('hidden', '');
+          }
+        });
+      }
+
       tabs.forEach(function(tab) {
         tab.addEventListener('click', function() {
-          var target = tab.getAttribute('data-tab');
-
-          tabs.forEach(function(t) {
-            var isActive = t === tab;
-            t.classList.toggle('active', isActive);
-            t.setAttribute('aria-selected', isActive ? 'true' : 'false');
-          });
-
-          panels.forEach(function(p) {
-            var show = p.id === 'tab-' + target;
-            p.classList.toggle('active', show);
-            if (show) {
-              p.removeAttribute('hidden');
-            } else {
-              p.setAttribute('hidden', '');
-            }
-          });
-
-          Object.keys(calendars).forEach(function(key) {
-            var el = calendars[key];
-            if (!el) return;
-            if (key === target) {
-              el.removeAttribute('hidden');
-            } else {
-              el.setAttribute('hidden', '');
-            }
-          });
+          activateTab(tab.getAttribute('data-tab'));
         });
       });
+
+      // Honor ?tab=performance or #performance on page load
+      var hash = (window.location.hash || '').replace('#', '');
+      var params = new URLSearchParams(window.location.search);
+      var initial = params.get('tab') || hash;
+      if (initial === 'performance' || initial === 'hitting') {
+        activateTab(initial);
+      }
     })();
   </script>
 

@@ -231,70 +231,118 @@
       margin: 0;
     }
 
-    /* Calendar placeholder */
-    .booking-calendar {
+    /* ===== BOOKING REQUEST FORM ===== */
+    .booking-form-wrap {
       background: var(--light);
-      border: 2px dashed var(--border);
-      border-radius: 8px;
-      padding: 4rem 2rem;
+      border-top: 4px solid var(--red);
+      border-radius: 6px;
+      padding: 3rem;
       margin-bottom: 3rem;
-      position: relative;
-      text-align: center;
+      text-align: left;
     }
 
-    .booking-calendar-icon {
-      font-size: 3rem;
-      margin-bottom: 1rem;
-    }
-
-    .booking-calendar h3 {
+    .booking-form-wrap h3 {
       font-family: 'Oswald', sans-serif;
-      font-size: 1.5rem;
-      font-weight: 600;
+      font-size: 1.6rem;
+      font-weight: 700;
       text-transform: uppercase;
-      letter-spacing: 2px;
+      letter-spacing: 1px;
       color: var(--black);
-      margin-bottom: 0.75rem;
+      margin-bottom: 0.4rem;
     }
 
-    /* Booking calendar embed */
-    .booking-calendar-embed {
-      margin-bottom: 3rem;
+    .booking-form-wrap > p {
+      font-size: 0.875rem;
+      color: #777;
+      margin-bottom: 2rem;
+      line-height: 1.6;
     }
 
-    .booking-calendar-embed iframe,
-    .booking-calendar-embed .cal-inline {
-      width: 100%;
-      min-height: 620px;
-      border: none;
-      border-radius: 8px;
-      background: var(--black);
-      overflow: hidden;
+    .form-row {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1rem;
     }
 
-    .booking-calendar-embed .cal-inline > iframe {
-      height: auto !important;
+    .form-group {
+      margin-bottom: 1.25rem;
     }
 
-    .booking-calendar-fallback {
-      margin-top: 1rem;
-      text-align: center;
-    }
-
-    .booking-calendar-fallback p {
-      font-size: 0.85rem;
-      color: #888;
-      margin-top: 0.75rem;
-    }
-
-    .booking-calendar-fallback p a {
-      color: var(--red);
-      text-decoration: none;
+    .form-group label {
+      display: block;
+      font-family: 'Oswald', sans-serif;
+      font-size: 0.8rem;
       font-weight: 600;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      color: var(--black);
+      margin-bottom: 0.5rem;
     }
 
-    .booking-calendar-fallback p a:hover {
-      text-decoration: underline;
+    .form-optional {
+      color: #999;
+      font-weight: 400;
+      letter-spacing: 1px;
+    }
+
+    .form-group input,
+    .form-group select,
+    .form-group textarea {
+      width: 100%;
+      padding: 0.85rem 1rem;
+      background: var(--white);
+      border: 1px solid #ddd;
+      border-radius: 0;
+      font-family: 'Inter', sans-serif;
+      font-size: 0.9rem;
+      color: var(--black);
+      transition: border-color 0.2s;
+      outline: none;
+      appearance: none;
+    }
+
+    .form-group input:focus,
+    .form-group select:focus,
+    .form-group textarea:focus {
+      border-color: var(--red);
+    }
+
+    .form-group textarea {
+      resize: vertical;
+      min-height: 110px;
+    }
+
+    .form-submit {
+      width: 100%;
+      padding: 1rem;
+      background: var(--red);
+      color: var(--white);
+      font-family: 'Oswald', sans-serif;
+      font-size: 1rem;
+      font-weight: 600;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      border: none;
+      cursor: pointer;
+      transition: background 0.2s;
+      border-radius: 0;
+    }
+
+    .form-submit:hover {
+      background: var(--red-dark);
+    }
+
+    .form-submit:disabled {
+      cursor: default;
+      opacity: 0.9;
+    }
+
+    .booking-form-note {
+      font-size: 0.8rem;
+      color: #888;
+      text-align: center;
+      margin: 1rem 0 0;
+      line-height: 1.6;
     }
 
     .booking-alt {
@@ -386,6 +434,14 @@
 
       .eval-section-title {
         font-size: 1.6rem;
+      }
+
+      .booking-form-wrap {
+        padding: 2rem 1.5rem;
+      }
+
+      .form-row {
+        grid-template-columns: 1fr;
       }
 
       .booking-alt {
@@ -497,30 +553,103 @@
   <!-- BOOK SECTION -->
   <section class="booking-section booking-section-book">
     <div class="booking-inner">
-      <p class="section-label" style="color: var(--red); text-align: center;">Pick a Time</p>
+      <p class="section-label" style="color: var(--red); text-align: center;">Request a Time</p>
       <h2 class="eval-section-title eval-section-title-light">Book Your Evaluation</h2>
       <div class="section-divider center"></div>
 
-      <!-- Booking type toggle -->
-      <div class="eval-tabs-wrapper">
-        <div class="eval-tabs" role="tablist" aria-label="Choose booking type">
-          <button class="eval-tab active" data-tab="hitting" role="tab" aria-selected="true" aria-controls="booking-hitting">Hitting Evaluation</button>
-          <button class="eval-tab" data-tab="performance" role="tab" aria-selected="false" aria-controls="booking-performance">Performance Assessment</button>
-        </div>
-      </div>
+      <!-- Booking Request Form -->
+      <div class="booking-form-wrap">
+        <h3>Request Your Evaluation</h3>
+        <p>Tell us about the athlete and when you'd like to come in. We'll follow up by phone or text within 24 hours to lock in your exact time.</p>
 
-      <!-- Booking Calendar -->
-      <div class="booking-calendar-embed" id="booking-hitting">
-        <div class="cal-inline" id="cal-hitting"></div>
-        <div class="booking-calendar-fallback">
-          <p>If the calendar isn't loading, <a href="https://cal.com/trevor-tfp/hittingeval" target="_blank" rel="noopener noreferrer">click here to open it in a new window</a>.</p>
-        </div>
-      </div>
-      <div class="booking-calendar-embed" id="booking-performance" hidden>
-        <div class="cal-inline" id="cal-performance"></div>
-        <div class="booking-calendar-fallback">
-          <p>If the calendar isn't loading, <a href="https://cal.com/trevor-tfp/performanceassessment" target="_blank" rel="noopener noreferrer">click here to open it in a new window</a>.</p>
-        </div>
+        <form action="https://api.web3forms.com/submit" method="POST" onsubmit="handleSubmit(event)">
+          <input type="hidden" name="access_key" value="c3767e11-383c-4bb3-889c-6bd925ff571c" />
+          <input type="hidden" name="subject" value="New Evaluation Request &mdash; Top Flight Performance" />
+          <input type="hidden" name="from_name" value="Top Flight Performance Website" />
+          <input type="checkbox" name="botcheck" style="display:none" tabindex="-1" autocomplete="off" />
+
+          <div class="form-row">
+            <div class="form-group">
+              <label for="athleteName">Athlete's Name</label>
+              <input type="text" id="athleteName" name="athleteName" placeholder="John Smith" required />
+            </div>
+            <div class="form-group">
+              <label for="athleteAge">Athlete's Age / Grade</label>
+              <input type="text" id="athleteAge" name="athleteAge" placeholder="e.g. 15 / Sophomore" required />
+            </div>
+          </div>
+
+          <div class="form-group">
+            <label for="parentName">Parent / Guardian Name</label>
+            <input type="text" id="parentName" name="parentName" placeholder="Sarah Smith" required />
+          </div>
+
+          <div class="form-row">
+            <div class="form-group">
+              <label for="phone">Phone Number</label>
+              <input type="tel" id="phone" name="phone" placeholder="(913) 555-0000" required />
+            </div>
+            <div class="form-group">
+              <label for="email">Email Address</label>
+              <input type="email" id="email" name="email" placeholder="john@email.com" required />
+            </div>
+          </div>
+
+          <div class="form-group">
+            <label for="program">Desired Program</label>
+            <select id="program" name="program" required>
+              <option value="" disabled selected>Select a program...</option>
+              <option value="Hitting Evaluation">Hitting Evaluation</option>
+              <option value="Performance Assessment">Performance Assessment</option>
+              <option value="TFP Hitting Membership">TFP Hitting Membership</option>
+              <option value="TFP Strength Only Membership">TFP Strength Only Membership</option>
+              <option value="TFP Hitting + Strength Combo">TFP Hitting + Strength Combo</option>
+              <option value="Sibling Training">Sibling Training</option>
+              <option value="Not Sure Yet">Not Sure Yet</option>
+            </select>
+          </div>
+
+          <div class="form-row">
+            <div class="form-group">
+              <label for="preferredDay">Preferred Day</label>
+              <select id="preferredDay" name="preferredDay" required>
+                <option value="" disabled selected>Select a day...</option>
+                <option value="Monday">Monday</option>
+                <option value="Tuesday">Tuesday</option>
+                <option value="Wednesday">Wednesday</option>
+                <option value="Thursday">Thursday</option>
+                <option value="Friday">Friday</option>
+                <option value="Saturday">Saturday</option>
+                <option value="Sunday">Sunday</option>
+                <option value="Flexible">I'm flexible</option>
+              </select>
+            </div>
+            <div class="form-group">
+              <label for="preferredTime">Preferred Time</label>
+              <select id="preferredTime" name="preferredTime" required>
+                <option value="" disabled selected>Select a time...</option>
+                <option value="Morning (before 12pm)">Morning &mdash; before 12pm</option>
+                <option value="Early afternoon (12-3pm)">Early afternoon &mdash; 12&ndash;3pm</option>
+                <option value="Late afternoon (3-6pm)">Late afternoon &mdash; 3&ndash;6pm</option>
+                <option value="Evening (6-9pm)">Evening &mdash; 6&ndash;9pm</option>
+                <option value="Flexible">I'm flexible</option>
+              </select>
+            </div>
+          </div>
+
+          <div class="form-group">
+            <label for="backupTime">Backup Day / Time <span class="form-optional">(optional)</span></label>
+            <input type="text" id="backupTime" name="backupTime" placeholder="e.g. Saturday morning also works" />
+          </div>
+
+          <div class="form-group">
+            <label for="message">Anything else we should know? <span class="form-optional">(optional)</span></label>
+            <textarea id="message" name="message" placeholder="Current level, goals, any questions..."></textarea>
+          </div>
+
+          <button type="submit" class="form-submit">Request My Evaluation</button>
+          <p class="booking-form-note">This is a request, not a confirmed booking &mdash; we'll reach out to lock in your exact day and time.</p>
+        </form>
       </div>
 
       <!-- Alternative Contact -->
@@ -627,13 +756,14 @@
     (function() {
       var tabs = document.querySelectorAll('.eval-tab');
       var panels = document.querySelectorAll('.eval-tab-panel');
-      var calendars = {
-        hitting: document.getElementById('booking-hitting'),
-        performance: document.getElementById('booking-performance')
+      var programSelect = document.getElementById('program');
+      var programByTab = {
+        hitting: 'Hitting Evaluation',
+        performance: 'Performance Assessment'
       };
       if (!tabs.length) return;
 
-      function activateTab(target) {
+      function activateTab(target, syncProgram) {
         tabs.forEach(function(t) {
           var isActive = t.getAttribute('data-tab') === target;
           t.classList.toggle('active', isActive);
@@ -650,20 +780,14 @@
           }
         });
 
-        Object.keys(calendars).forEach(function(key) {
-          var el = calendars[key];
-          if (!el) return;
-          if (key === target) {
-            el.removeAttribute('hidden');
-          } else {
-            el.setAttribute('hidden', '');
-          }
-        });
+        if (syncProgram && programSelect && programByTab[target]) {
+          programSelect.value = programByTab[target];
+        }
       }
 
       tabs.forEach(function(tab) {
         tab.addEventListener('click', function() {
-          activateTab(tab.getAttribute('data-tab'));
+          activateTab(tab.getAttribute('data-tab'), false);
         });
       });
 
@@ -672,47 +796,40 @@
       var params = new URLSearchParams(window.location.search);
       var initial = params.get('tab') || hash;
       if (initial === 'performance' || initial === 'hitting') {
-        activateTab(initial);
+        activateTab(initial, true);
       }
     })();
+
+    // Booking request form submit
+    async function handleSubmit(e) {
+      e.preventDefault();
+      const form = e.target;
+      const btn = form.querySelector('.form-submit');
+      btn.textContent = 'Sending...';
+      btn.disabled = true;
+
+      try {
+        const response = await fetch(form.action, {
+          method: 'POST',
+          body: new FormData(form),
+          headers: { Accept: 'application/json' }
+        });
+        const data = await response.json();
+        if (data.success) {
+          window.location.href = 'thank-you.html?type=booking';
+          return;
+        }
+        btn.textContent = 'Something went wrong \u2014 try again or call us.';
+        btn.style.background = '#8a1a1a';
+        btn.disabled = false;
+      } catch (err) {
+        btn.textContent = 'Network error \u2014 try again or call us.';
+        btn.style.background = '#8a1a1a';
+        btn.disabled = false;
+      }
+    }
   </script>
 
-  <!-- Cal.com inline embed -->
-  <script type="text/javascript">
-    (function (C, A, L) { let p = function (a, ar) { a.q.push(ar); }; let d = C.document; C.Cal = C.Cal || function () { let cal = C.Cal; let ar = arguments; if (!cal.loaded) { cal.ns = {}; cal.q = cal.q || []; d.head.appendChild(d.createElement("script")).src = A; cal.loaded = true; } if (ar[0] === L) { const api = function () { p(api, arguments); }; const namespace = ar[1]; api.q = api.q || []; if(typeof namespace === "string"){cal.ns[namespace] = cal.ns[namespace] || api;p(cal.ns[namespace], ar);p(cal, ["initNamespace", namespace]);} else p(cal, ar); return;} p(cal, ar); }; })(window, "https://app.cal.com/embed/embed.js", "init");
-
-    Cal("init", "hittingeval", {origin: "https://cal.com"});
-    Cal.ns.hittingeval("inline", {
-      elementOrSelector: "#cal-hitting",
-      config: { layout: "month_view", theme: "dark" },
-      calLink: "trevor-tfp/hittingeval"
-    });
-    Cal.ns.hittingeval("ui", {
-      theme: "dark",
-      cssVarsPerTheme: {
-        light: { "cal-brand": "#C8102E" },
-        dark:  { "cal-brand": "#C8102E" }
-      },
-      hideEventTypeDetails: false,
-      layout: "month_view"
-    });
-
-    Cal("init", "performanceassessment", {origin: "https://cal.com"});
-    Cal.ns.performanceassessment("inline", {
-      elementOrSelector: "#cal-performance",
-      config: { layout: "month_view", theme: "dark" },
-      calLink: "trevor-tfp/performanceassessment"
-    });
-    Cal.ns.performanceassessment("ui", {
-      theme: "dark",
-      cssVarsPerTheme: {
-        light: { "cal-brand": "#C8102E" },
-        dark:  { "cal-brand": "#C8102E" }
-      },
-      hideEventTypeDetails: false,
-      layout: "month_view"
-    });
-  </script>
 
 </body>
 </html>

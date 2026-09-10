@@ -124,10 +124,10 @@
 
   <section class="thanks-section">
     <div class="thanks-icon">&#10003;</div>
-    <h1>Message Received</h1>
-    <p>Thanks for reaching out. We'll be in touch within 24 hours to talk through your athlete's goals and the next step. In the meantime, feel free to book an evaluation or explore our programs.</p>
+    <h1 id="thanksTitle">Message Received</h1>
+    <p id="thanksBody">Thanks for reaching out. We'll be in touch within 24 hours to talk through your athlete's goals and the next step. In the meantime, feel free to book an evaluation or explore our programs.</p>
     <div class="thanks-actions">
-      <a href="booking.html" class="thanks-primary">Book an Evaluation</a>
+      <a href="booking.html" class="thanks-primary" id="thanksPrimary">Book an Evaluation</a>
       <a href="services.html" class="thanks-outline">Explore Programs</a>
     </div>
   </section>
@@ -171,6 +171,20 @@
     function toggleNav() {
       document.getElementById('navLinks').classList.toggle('open');
     }
+
+    // Booking requests get their own copy
+    (function() {
+      var params = new URLSearchParams(window.location.search);
+      if (params.get('type') !== 'booking') return;
+
+      document.getElementById('thanksTitle').textContent = 'Request Received';
+      document.getElementById('thanksBody').textContent =
+        "Thanks for requesting an evaluation. We'll reach out by phone or text within 24 hours to confirm your day and time. If you need us sooner, call or text 913-295-7930.";
+
+      var primary = document.getElementById('thanksPrimary');
+      primary.textContent = 'Call or Text Us';
+      primary.setAttribute('href', 'tel:9132957930');
+    })();
   </script>
 
 </body>

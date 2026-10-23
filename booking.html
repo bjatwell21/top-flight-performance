@@ -95,6 +95,41 @@
       color: var(--black);
     }
 
+    /* Ad-landing hero */
+    .eval-hero-title {
+      font-family: 'Oswald', sans-serif;
+      font-size: 3rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 2px;
+      color: var(--white);
+      text-align: center;
+      margin: 0;
+      line-height: 1.1;
+    }
+
+    .eval-hero-sub {
+      font-family: 'Oswald', sans-serif;
+      font-size: 1.15rem;
+      font-weight: 500;
+      letter-spacing: 1px;
+      color: var(--white);
+      text-align: center;
+      margin: 1.25rem auto 0;
+      max-width: 640px;
+      line-height: 1.5;
+    }
+
+    .eval-hero-cta {
+      text-align: center;
+      margin-top: 2rem;
+    }
+
+    /* Clear the fixed 72px nav when the hero button jumps to the form */
+    #request {
+      scroll-margin-top: 90px;
+    }
+
     .eval-intro-text {
       font-size: 1rem;
       color: #bbb;
@@ -436,6 +471,20 @@
         font-size: 1.6rem;
       }
 
+      .eval-hero-title {
+        font-size: 2.1rem;
+        letter-spacing: 1px;
+      }
+
+      .eval-hero-sub {
+        font-size: 1rem;
+        margin-top: 1rem;
+      }
+
+      .eval-hero-cta {
+        margin-top: 1.75rem;
+      }
+
       .booking-form-wrap {
         padding: 2rem 1.5rem;
       }
@@ -475,18 +524,25 @@
     </div>
   </nav>
 
-  <!-- EVALUATION HEADER (dark section under the nav) -->
+  <!-- HERO (dark section under the nav) -->
   <section class="eval-dark-section">
     <div class="eval-dark-inner">
-      <p class="section-label" style="color: var(--red); text-align: center;">Before You Book</p>
-      <h2 class="eval-section-title">What to Expect at Your Evaluation</h2>
+      <h1 class="eval-hero-title">Find out where your athlete stands.</h1>
+      <p class="eval-hero-sub">60+ college commits. 3 draft picks. Ages 12&ndash;18 in Olathe.</p>
       <div class="section-divider center"></div>
+      <div class="eval-hero-cta">
+        <a href="#request" class="btn-primary">Request a Time</a>
+      </div>
     </div>
   </section>
 
   <!-- EVALUATION TABS (white section below dark header) -->
   <section class="eval-light-section">
     <div class="eval-light-inner">
+      <p class="section-label" style="color: var(--red); text-align: center;">Before You Book</p>
+      <h2 class="eval-section-title eval-section-title-light">What to Expect at Your Evaluation</h2>
+      <div class="section-divider center"></div>
+
       <div class="eval-tabs-wrapper">
         <div class="eval-tabs" role="tablist">
           <button class="eval-tab active" data-tab="hitting" role="tab" aria-selected="true" aria-controls="tab-hitting">Hitting Evaluation</button>
@@ -558,9 +614,9 @@
       <div class="section-divider center"></div>
 
       <!-- Booking Request Form -->
-      <div class="booking-form-wrap">
+      <div class="booking-form-wrap" id="request">
         <h3>Request Your Evaluation</h3>
-        <p>Tell us about the athlete and when you'd like to come in. We'll follow up by phone or text within 24 hours to lock in your exact time.</p>
+        <p>Takes 30 seconds. I'll text you today to lock in a time. &mdash; Trevor</p>
 
         <form action="https://api.web3forms.com/submit" method="POST" onsubmit="handleSubmit(event)">
           <input type="hidden" name="access_key" value="c3767e11-383c-4bb3-889c-6bd925ff571c" />
@@ -568,89 +624,44 @@
           <input type="hidden" name="from_name" value="Top Flight Performance Website" />
           <input type="checkbox" name="botcheck" style="display:none" tabindex="-1" autocomplete="off" />
 
-          <div class="form-row">
-            <div class="form-group">
-              <label for="athleteName">Athlete's Name</label>
-              <input type="text" id="athleteName" name="athleteName" placeholder="John Smith" required />
-            </div>
-            <div class="form-group">
-              <label for="athleteAge">Athlete's Age / Grade</label>
-              <input type="text" id="athleteAge" name="athleteAge" placeholder="e.g. 15 / Sophomore" required />
-            </div>
-          </div>
-
-          <div class="form-row">
-            <div class="form-group">
-              <label for="sport">Sport</label>
-              <input type="text" id="sport" name="sport" placeholder="e.g. Baseball" required />
-            </div>
-            <div class="form-group">
-              <label for="organization">School / Team / Org <span class="form-optional">(optional)</span></label>
-              <input type="text" id="organization" name="organization" placeholder="e.g. Olathe North HS, KU, travel team" />
-            </div>
-          </div>
-
           <div class="form-group">
-            <label for="parentName">Parent / Guardian <span class="form-optional">(if applicable)</span></label>
-            <input type="text" id="parentName" name="parentName" placeholder="Leave blank if you're the athlete" />
+            <label for="parentName">Parent Name</label>
+            <input type="text" id="parentName" name="parentName" placeholder="Sarah Smith" autocomplete="name" required />
           </div>
 
           <div class="form-row">
             <div class="form-group">
               <label for="phone">Phone Number</label>
-              <input type="tel" id="phone" name="phone" placeholder="(913) 555-0000" required />
+              <input type="tel" id="phone" name="phone" placeholder="(913) 555-0000" inputmode="tel" autocomplete="tel" required />
             </div>
             <div class="form-group">
-              <label for="email">Email Address</label>
-              <input type="email" id="email" name="email" placeholder="john@email.com" required />
+              <label for="email">Email Address <span class="form-optional">(optional)</span></label>
+              <input type="email" id="email" name="email" placeholder="john@email.com" inputmode="email" autocomplete="email" />
             </div>
-          </div>
-
-          <div class="form-group">
-            <label for="program">Desired Program</label>
-            <select id="program" name="program" required>
-              <option value="" disabled selected>Select a program...</option>
-              <option value="Hitting Evaluation">Hitting Evaluation</option>
-              <option value="Performance Assessment">Performance Assessment</option>
-              <option value="TFP Hitting Membership">TFP Hitting Membership</option>
-              <option value="TFP Strength Only Membership">TFP Strength Only Membership</option>
-              <option value="TFP Hitting + Strength Combo">TFP Hitting + Strength Combo</option>
-              <option value="Sibling Training">Sibling Training</option>
-              <option value="Not Sure Yet">Not Sure Yet</option>
-            </select>
           </div>
 
           <div class="form-row">
             <div class="form-group">
-              <label for="preferredDay">Preferred Day</label>
-              <select id="preferredDay" name="preferredDay" required>
-                <option value="" disabled selected>Select a day...</option>
-                <option value="Monday">Monday</option>
-                <option value="Tuesday">Tuesday</option>
-                <option value="Wednesday">Wednesday</option>
-                <option value="Thursday">Thursday</option>
-                <option value="Friday">Friday</option>
-                <option value="Saturday">Saturday</option>
-                <option value="Sunday">Sunday</option>
-                <option value="Flexible">I'm flexible</option>
-              </select>
+              <label for="athleteAge">Athlete's Age</label>
+              <input type="text" id="athleteAge" name="athleteAge" placeholder="e.g. 15" inputmode="numeric" required />
             </div>
             <div class="form-group">
-              <label for="preferredTime">Preferred Time</label>
-              <select id="preferredTime" name="preferredTime" required>
-                <option value="" disabled selected>Select a time...</option>
-                <option value="Morning (before 12pm)">Morning &mdash; before 12pm</option>
-                <option value="Early afternoon (12-3pm)">Early afternoon &mdash; 12&ndash;3pm</option>
-                <option value="Late afternoon (3-6pm)">Late afternoon &mdash; 3&ndash;6pm</option>
-                <option value="Evening (6-9pm)">Evening &mdash; 6&ndash;9pm</option>
-                <option value="Flexible">I'm flexible</option>
+              <label for="sport">Sport</label>
+              <select id="sport" name="sport" required>
+                <option value="" disabled selected>Select a sport...</option>
+                <option value="Baseball">Baseball</option>
+                <option value="Softball">Softball</option>
               </select>
             </div>
           </div>
 
           <div class="form-group">
-            <label for="backupTime">Backup Day / Time <span class="form-optional">(optional)</span></label>
-            <input type="text" id="backupTime" name="backupTime" placeholder="e.g. Saturday morning also works" />
+            <label for="program">Which Evaluation</label>
+            <select id="program" name="program" required>
+              <option value="" disabled selected>Select an evaluation...</option>
+              <option value="Hitting Evaluation">Hitting Evaluation</option>
+              <option value="Performance Assessment">Performance Assessment</option>
+            </select>
           </div>
 
           <div class="form-group">
@@ -658,8 +669,8 @@
             <textarea id="message" name="message" placeholder="Current level, goals, any questions..."></textarea>
           </div>
 
-          <button type="submit" class="form-submit">Request My Evaluation</button>
-          <p class="booking-form-note">This is a request, not a confirmed booking &mdash; we'll reach out to lock in your exact day and time.</p>
+          <button type="submit" class="form-submit">Text Me a Time</button>
+          <p class="booking-form-note">We'll text you today to confirm your day and time.</p>
         </form>
       </div>
 

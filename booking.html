@@ -291,21 +291,24 @@
       text-align: left;
     }
 
-    .booking-form-wrap h3 {
+    .booking-form-wrap h2 {
       font-family: 'Oswald', sans-serif;
       font-size: 1.6rem;
       font-weight: 700;
       text-transform: uppercase;
       letter-spacing: 1px;
       color: var(--black);
+      text-align: center;
       margin-bottom: 0.4rem;
     }
 
     .booking-form-wrap > p {
       font-size: 0.875rem;
       color: #777;
-      margin-bottom: 2rem;
       line-height: 1.6;
+      text-align: center;
+      max-width: 420px;
+      margin: 0 auto 2rem;
     }
 
     .form-row {
@@ -560,13 +563,9 @@
   <!-- BOOK SECTION (directly under the hero) -->
   <section class="booking-section booking-section-book">
     <div class="booking-inner">
-      <p class="section-label" style="color: var(--red); text-align: center;">Request a Time</p>
-      <h2 class="eval-section-title eval-section-title-light">Book Your Evaluation</h2>
-      <div class="section-divider center"></div>
-
       <!-- Booking Request Form -->
       <div class="booking-form-wrap" id="request">
-        <h3>Request Your Evaluation</h3>
+        <h2>Request Your Evaluation</h2>
         <p>Takes 30 seconds. I'll text you today to lock in a time. &mdash; Trevor</p>
 
         <form action="https://api.web3forms.com/submit" method="POST" onsubmit="handleSubmit(event)">

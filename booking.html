@@ -17,7 +17,7 @@
   <link rel="stylesheet" href="styles.css" />
   <style>
     .booking-section {
-      padding: 2rem 4rem 6rem;
+      padding: 4rem 4rem 4rem;
       background: var(--white);
     }
 
@@ -71,7 +71,7 @@
     /* White section with tabs, sits right under the dark header */
     .eval-light-section {
       background: var(--white);
-      padding: 4rem 4rem 2rem;
+      padding: 2rem 4rem 4rem;
     }
 
     .eval-light-inner {
@@ -118,6 +118,21 @@
       margin: 1.25rem auto 0;
       max-width: 640px;
       line-height: 1.5;
+    }
+
+    .eval-hero-sub .nowrap {
+      white-space: nowrap;
+    }
+
+    .eval-hero-location {
+      font-family: 'Oswald', sans-serif;
+      font-size: 0.9rem;
+      font-weight: 500;
+      text-transform: uppercase;
+      letter-spacing: 3px;
+      color: #c9c9c9;
+      text-align: center;
+      margin: 0.75rem 0 0;
     }
 
     .eval-hero-cta {
@@ -430,7 +445,7 @@
 
     @media (max-width: 900px) {
       .booking-section {
-        padding: 3rem 1.5rem 4rem;
+        padding: 2.5rem 1.5rem 3rem;
       }
 
       .eval-dark-section {
@@ -448,7 +463,7 @@
       }
 
       .eval-light-section {
-        padding: 2.5rem 1.5rem 3.5rem;
+        padding: 1.5rem 1.5rem 3rem;
       }
 
       .eval-components {
@@ -479,6 +494,11 @@
       .eval-hero-sub {
         font-size: 1rem;
         margin-top: 1rem;
+      }
+
+      .eval-hero-location {
+        font-size: 0.8rem;
+        letter-spacing: 2px;
       }
 
       .eval-hero-cta {
@@ -528,7 +548,8 @@
   <section class="eval-dark-section">
     <div class="eval-dark-inner">
       <h1 class="eval-hero-title">Find out where your athlete stands.</h1>
-      <p class="eval-hero-sub">60+ college commits. 3 draft picks. Ages 12&ndash;18 in Olathe.</p>
+      <p class="eval-hero-sub">60+ college commits. 3 draft picks. <span class="nowrap">Ages 12&ndash;18.</span></p>
+      <p class="eval-hero-location">Olathe, Kansas</p>
       <div class="section-divider center"></div>
       <div class="eval-hero-cta">
         <a href="#request" class="btn-primary">Request a Time</a>
@@ -536,77 +557,7 @@
     </div>
   </section>
 
-  <!-- EVALUATION TABS (white section below dark header) -->
-  <section class="eval-light-section">
-    <div class="eval-light-inner">
-      <p class="section-label" style="color: var(--red); text-align: center;">Before You Book</p>
-      <h2 class="eval-section-title eval-section-title-light">What to Expect at Your Evaluation</h2>
-      <div class="section-divider center"></div>
-
-      <div class="eval-tabs-wrapper">
-        <div class="eval-tabs" role="tablist">
-          <button class="eval-tab active" data-tab="hitting" role="tab" aria-selected="true" aria-controls="tab-hitting">Hitting Evaluation</button>
-          <button class="eval-tab" data-tab="performance" role="tab" aria-selected="false" aria-controls="tab-performance">Performance Assessment</button>
-        </div>
-
-        <!-- Hitting Evaluation Panel -->
-        <div class="eval-tab-panel active" id="tab-hitting" role="tabpanel">
-          <p class="eval-lead">Our hitting evaluation is designed to give athletes a clear, data-driven understanding of their swing and how to improve it.</p>
-
-          <div class="eval-components">
-            <div class="eval-component">
-              <span class="eval-component-num">1</span>
-              <h4>Swing Analysis</h4>
-              <p>We break down the athlete's swing to identify strengths, inefficiencies, and key areas for development.</p>
-            </div>
-            <div class="eval-component">
-              <span class="eval-component-num">2</span>
-              <h4>Video Breakdown</h4>
-              <p>Using detailed video analysis, we provide visual feedback so athletes can see exactly what's happening in their swing and better understand the adjustments needed.</p>
-            </div>
-            <div class="eval-component">
-              <span class="eval-component-num">3</span>
-              <h4>Metrics</h4>
-              <p>We track important performance data such as exit velocity, launch angle, and ball flight to give objective insight into performance and progress.</p>
-            </div>
-          </div>
-
-          <p class="eval-conclusion">
-            After the evaluation, we walk through everything step-by-step and build a plan to help the athlete develop a more efficient, powerful, and consistent swing.
-          </p>
-        </div>
-
-        <!-- Performance Assessment Panel -->
-        <div class="eval-tab-panel" id="tab-performance" role="tabpanel" hidden>
-          <p class="eval-lead">Our comprehensive assessment is designed to identify exactly where an athlete stands and how we can help them improve.</p>
-
-          <div class="eval-components">
-            <div class="eval-component">
-              <span class="eval-component-num">1</span>
-              <h4>Movement Assessment</h4>
-              <p>We evaluate overall movement quality to identify limitations, imbalances, and areas for improvement. This helps us build a safe and effective training plan tailored to the athlete.</p>
-            </div>
-            <div class="eval-component">
-              <span class="eval-component-num">2</span>
-              <h4>10-Yard Sprint</h4>
-              <p>This test measures acceleration and explosive power — key components for performance on the field.</p>
-            </div>
-            <div class="eval-component">
-              <span class="eval-component-num">3</span>
-              <h4>Force Plate Assessment</h4>
-              <p>Using advanced technology, we analyze power output, vertical jump height, and Reactive Strength Index (RSI) to get a detailed look at an athlete's explosiveness and efficiency.</p>
-            </div>
-          </div>
-
-          <p class="eval-conclusion">
-            From there, we break everything down and create a personalized plan to help each athlete move better, get faster, and become more powerful.
-          </p>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- BOOK SECTION -->
+  <!-- BOOK SECTION (directly under the hero) -->
   <section class="booking-section booking-section-book">
     <div class="booking-inner">
       <p class="section-label" style="color: var(--red); text-align: center;">Request a Time</p>
@@ -689,6 +640,75 @@
             <h4>Send Us a Message</h4>
             <p><a href="contact.html">Fill out our contact form</a></p>
           </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- EVALUATION TABS (what to expect, below the form) -->
+  <section class="eval-light-section">
+    <div class="eval-light-inner">
+      <h2 class="eval-section-title eval-section-title-light">What to Expect at Your Evaluation</h2>
+      <div class="section-divider center"></div>
+
+      <div class="eval-tabs-wrapper">
+        <div class="eval-tabs" role="tablist">
+          <button class="eval-tab active" data-tab="hitting" role="tab" aria-selected="true" aria-controls="tab-hitting">Hitting Evaluation</button>
+          <button class="eval-tab" data-tab="performance" role="tab" aria-selected="false" aria-controls="tab-performance">Performance Assessment</button>
+        </div>
+
+        <!-- Hitting Evaluation Panel -->
+        <div class="eval-tab-panel active" id="tab-hitting" role="tabpanel">
+          <p class="eval-lead">Our hitting evaluation is designed to give athletes a clear, data-driven understanding of their swing and how to improve it.</p>
+
+          <div class="eval-components">
+            <div class="eval-component">
+              <span class="eval-component-num">1</span>
+              <h4>Swing Analysis</h4>
+              <p>We break down the athlete's swing to identify strengths, inefficiencies, and key areas for development.</p>
+            </div>
+            <div class="eval-component">
+              <span class="eval-component-num">2</span>
+              <h4>Video Breakdown</h4>
+              <p>Using detailed video analysis, we provide visual feedback so athletes can see exactly what's happening in their swing and better understand the adjustments needed.</p>
+            </div>
+            <div class="eval-component">
+              <span class="eval-component-num">3</span>
+              <h4>Metrics</h4>
+              <p>We track important performance data such as exit velocity, launch angle, and ball flight to give objective insight into performance and progress.</p>
+            </div>
+          </div>
+
+          <p class="eval-conclusion">
+            After the evaluation, we walk through everything step-by-step and build a plan to help the athlete develop a more efficient, powerful, and consistent swing.
+          </p>
+        </div>
+
+        <!-- Performance Assessment Panel -->
+        <div class="eval-tab-panel" id="tab-performance" role="tabpanel" hidden>
+          <p class="eval-lead">Our comprehensive assessment is designed to identify exactly where an athlete stands and how we can help them improve.</p>
+
+          <div class="eval-components">
+            <div class="eval-component">
+              <span class="eval-component-num">1</span>
+              <h4>Movement Assessment</h4>
+              <p>We evaluate overall movement quality to identify limitations, imbalances, and areas for improvement. This helps us build a safe and effective training plan tailored to the athlete.</p>
+            </div>
+            <div class="eval-component">
+              <span class="eval-component-num">2</span>
+              <h4>10-Yard Sprint</h4>
+              <p>This test measures acceleration and explosive power — key components for performance on the field.</p>
+            </div>
+            <div class="eval-component">
+              <span class="eval-component-num">3</span>
+              <h4>Force Plate Assessment</h4>
+              <p>Using advanced technology, we analyze power output, vertical jump height, and Reactive Strength Index (RSI) to get a detailed look at an athlete's explosiveness and efficiency.</p>
+            </div>
+          </div>
+
+          <p class="eval-conclusion">
+            From there, we break everything down and create a personalized plan to help each athlete move better, get faster, and become more powerful.
+          </p>
         </div>
       </div>
     </div>
